@@ -1,278 +1,129 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
-}
 
-.description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.description p {
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
-}
-
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  width: var(--max-width);
-  max-width: 100%;
-}
-
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-}
-
-.center::before {
-  background: var(--secondary-glow);
-  border-radius: 50%;
-  width: 480px;
-  height: 360px;
-  margin-left: -400px;
-}
-
-.center::after {
-  background: var(--primary-glow);
-  width: 240px;
-  height: 180px;
-  z-index: -1;
-}
-
-.center::before,
-.center::after {
-  content: '';
-  left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
-}
-
-.logo,
-.thirteen {
+.bungkuscard {
+  width: 250px;
+  min-height: 300px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 8px 0px, rgb(0 0 0 / 10%) 0px 6px 20px 0px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
   position: relative;
 }
 
-.thirteen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  padding: 25px 10px;
-  margin-left: 16px;
-  transform: translateZ(0);
-  border-radius: var(--border-radius);
+.bungkuscard .gambarartikel {
+  width: 250px;
+  height: 200px;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0px 2px 8px -1px #0000001a;
+  border-radius: 5px 5px 0 0;
 }
 
-.thirteen::before,
-.thirteen::after {
-  content: '';
+.bungkuscard:hover .linierartikel {
+  z-index: 2;
+  position: absolute!important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(118, 74, 241);
+  background: linear-gradient(0deg, rgba(118, 74, 241, 1) 0%, rgba(253, 187, 45, 0) 30%);
+}
+
+.gambarartikel .view {
   position: absolute;
-  z-index: -1;
+  top: 0;
+  background-color: #6c50d3;
+  color: white;
+  padding: 10px 15px;
 }
 
-/* Conic Gradient Animation */
-.thirteen::before {
-  animation: 6s rotate linear infinite;
-  width: 200%;
-  height: 200%;
-  background: var(--tile-border);
+
+
+.bungkusdesartikel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100px;
+  padding: 2vh 0 0 0;
 }
 
-/* Inner Square */
-.thirteen::after {
-  inset: 0;
-  padding: 1px;
-  border-radius: var(--border-radius);
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--tile-start-rgb), 1),
-    rgba(var(--tile-end-rgb), 1)
-  );
-  background-clip: content-box;
+.bungkusdesartikel .tanggal {
+  width: 95%;
+  font-size: 12px;
+  color: #3a4258;
+  font-weight: 500;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
-
-  .card:hover span {
-    transform: translateX(4px);
-  }
+.bungkusdesartikel .judul {
+  font-size: 16px;
+  width: 95%;
+  color: #3a4258;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion) {
-  .thirteen::before {
-    animation: none;
-  }
-
-  .card:hover span {
-    transform: none;
-  }
+.bungkuscard:hover img {
+  z-index: 1;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-  .content {
-    padding: 4rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
-  }
-
-  .card {
-    padding: 1rem 2.5rem;
-  }
-
-  .card h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .center {
-    padding: 8rem 0 6rem;
-  }
-
-  .center::before {
-    transform: none;
-    height: 300px;
-  }
-
-  .description {
-    font-size: 0.8rem;
-  }
-
-  .description a {
-    padding: 1rem;
-  }
-
-  .description p,
-  .description div {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-  }
-
-  .description p {
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
-    background-clip: padding-box;
-    backdrop-filter: blur(24px);
-  }
-
-  .description div {
-    align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
-    z-index: 1;
-  }
+.bungkuscard:hover .judul {
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-  .grid {
-    grid-template-columns: repeat(2, 50%);
-  }
+
+/* Luaran */
+.luarcard {
+  margin: 5vh 0;
+  display: flex;
+  justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
-
-  .logo,
-  .thirteen img {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
+.luarcardwarp {
+  width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
+.judullistartikel{
+  text-align: center;
+  font-size: 40px;
+  margin: 10px 0;
+  width: fit-content;
+  padding-bottom:10px ;
+  border-bottom: #6c50d3 solid 5px;
+  color: #3a4258;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .luarcardwarp {
+      width: 95%;
+      width: 95%;
   }
-  to {
-    transform: rotate(0deg);
+
+  .bungkuscard {
+      margin: 20px 0;
+      width: 100%;
+  }
+
+  .bungkuscard .gambarartikel {
+      min-width: 100%;
+  }
+
+
+  .bungkusdesartikel .tanggal {
+      font-size: 16px;
+  }
+
+  .bungkusdesartikel .judul {
+      font-size: 22px;
+  }
+
+  .bungkusdesartikel {
+      padding: 2vh 0 1vh 0;
   }
 }

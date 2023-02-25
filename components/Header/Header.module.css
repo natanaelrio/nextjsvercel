@@ -1,0 +1,76 @@
+.navigasi {
+    padding: 10px 0;
+    width: 100%;
+    height: 35px;
+    background-color: #6c50d3;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    color: #fff;
+}
+
+.navigasi .navwarp {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigasi .logoluar {
+    width: 550px;
+}
+
+.navigasi .logo {
+    height: 35px;
+    width: 35px;
+}
+
+.navigasi .pilihan {
+    width: 600px;
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigasi .pilihan ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+
+.navigasi .pilihan ul .satu a:-webkit-any-link {
+    margin: 0 10px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.navigasi .pilihan ul .satu:hover {
+    text-decoration: underline;
+    transition: all 0.1s ease;
+}
+
+.navigasi .pilihan ul  .satu:nth-child(1) a:-webkit-any-link {
+    background-color: #fff;
+    color: #764AF1;
+    font-weight: 500;
+    padding: 5px 25px;
+}
+
+.navigasi .pilihan ul .satu:nth-child(1):hover a:-webkit-any-link{
+    background-color: #764AF1;
+    color: #fff;
+    border: 1px solid #fff;
+    text-decoration: none!important;
+
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .navigasi .logoluar {
+        width: 95%;
+    }
+
+    .navigasi .pilihan {
+        display: none;
+    }
+}

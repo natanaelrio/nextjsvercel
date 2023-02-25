@@ -1,0 +1,43 @@
+.Footer {
+    background-color: #F2F2F2;
+    color: #764AF1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.5vh;
+    height: 8vh;
+    width:100%;
+}
+
+.Footer .kiri {
+    width: 60%;
+}
+
+.Footer .kanan {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Footer .kanan div {
+    margin-left: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .Footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .Footer .kiri {
+        width: 100%;
+    }
+    
+    .Footer .kanan {
+        width: 100%;
+        justify-content: center;
+    }
+}

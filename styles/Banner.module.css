@@ -1,0 +1,165 @@
+.wapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-top: 50px;
+}
+
+
+
+/* CARD */
+.luarcardpopuler {
+    width: 500px;
+}
+
+.luarcardpopuler .wapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cardpopuleratas {
+    margin: 10px;
+    width: 230px;
+    height: 150px;
+    position: relative;
+}
+
+.cardpopuleratas .gambar {
+    height: 150px;
+    width: 230px;
+}
+
+.cardpopuleratas .judul {
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    color: #3a4258;
+    padding: 10px;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.cardpopuleratas .linier {
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(118, 74, 241);
+    background: linear-gradient(0deg, rgba(118, 74, 241, 1) 0%, rgba(253, 187, 45, 0) 50%);
+}
+
+
+
+
+/* katakata */
+.katakata {
+    width: 600px;
+}
+
+.katakata .judul {
+    font-size: 50px;
+    font-weight: 900;
+    color: #6c50d3;
+}
+
+.katakata .deskripsi {
+    font-size: 30px;
+    font-weight: 400;
+    color: #3a4258;
+}
+
+.katakata button  {
+    margin: 10px 0;
+    outline: none;
+    background-color: #6c50d3;
+    color: #fff;
+    border: 0;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+
+
+.katakata button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #6c50d3;
+    border: 1px solid;
+    transition: all 0.1s ease;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .wapper {
+        flex-direction: column;
+    }
+
+
+    /* CARD */
+
+
+    .luarcardpopuler {
+        width: 95%;
+    }
+
+    .luarcardpopuler .wapper {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    .cardpopuleratas {
+        margin: 10px;
+        width: 95%;
+        height: 150px;
+        position: relative;
+    }
+
+    .cardpopuleratas .gambar {
+        height: 150px;
+        width: 95%;
+    }
+
+
+
+
+
+
+
+    /* katakata */
+    .katakata {
+        width: 95%;
+        margin-top:20px;
+    }
+
+    .katakata .judul {
+        font-size: 24px;
+
+    }
+
+    .katakata .deskripsi {
+        font-size: 20px;
+        font-weight: 400;
+        color: #3a4258;
+    }
+
+    .katakata button {
+        margin: 10px 0;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+
+
+}

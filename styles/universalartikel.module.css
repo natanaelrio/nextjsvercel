@@ -1,0 +1,656 @@
+.artikelwapper {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-body);
+}
+
+
+.isiartikel {
+    width: 1281px;
+    margin-top: 50px;
+}
+
+
+
+.article {
+    margin: 30px 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 50px;
+}
+
+
+/* ISINYA */
+.article .kiri {
+    grid-area: 1/2/2/17;
+    box-shadow: rgb(0 0 0 / 5%) 0px 4px 8px 0px, rgb(0 0 0 / 5%) 0px 6px 20px 0px;
+    border-radius: 5vh;
+    background-color: #fff;
+}
+
+.article .kiri {
+    padding: 70px 70px;
+}
+
+.article .kiri .judul {
+    display: flex;
+}
+
+.article .kiri .judul h1 {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--color-sekunder);
+    margin: 0;
+}
+
+.article .kiri .tanggal {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-sekunder);
+    margin-bottom: 10px;
+}
+
+.article .gambar {
+    height: 400px;
+    width: 100%;
+}
+
+.article .posting {
+    color: var(--color-sekunder);
+    font-weight: 500;
+    font-size: 18px;
+    margin: 20px 0;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+
+.article .posting span {
+    color: var(--color-sekunder);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.article .posting p {
+    color: var(--color-sekunder);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+
+.article .posting p img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70% !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 1vh;
+}
+
+.article .posting img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70% !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 1vh;
+}
+
+
+.article figcaption {
+    display: block;
+    margin: 0 auto;
+    color: #4C5B5C;
+    width: 60%;
+    height: 60%;
+    font-style: italic;
+    text-align: center;
+}
+
+.article li {
+    font-weight: 600;
+    text-align: left !important;
+    color: #6c50d3 !important;
+}
+
+
+.article li span strong {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    text-transform: capitalize !important;
+    text-align: left !important;
+    font-weight: bolder !important;
+    display: block;
+}
+
+.article li strong span {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    text-transform: capitalize !important;
+    text-align: left !important;
+}
+
+
+.article li span {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    text-transform: capitalize !important;
+    text-align: left !important;
+}
+
+.article li strong {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    text-transform: capitalize !important;
+    text-align: left !important;
+    display: block;
+}
+
+
+.article span strong {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    /* text-transform: uppercase !important; */
+    text-align: left !important;
+    font-weight: 900 !important;
+    display: block;
+}
+
+.article strong span {
+    font-size: 20px !important;
+    color: #6c50d3 !important;
+    /* text-transform: uppercase !important; */
+    text-align: left !important;
+    font-weight: bolder !important;
+    display: block;
+}
+
+.article li::marker {
+    color: #6c50d3;
+    font-weight: bold !important;
+    font-size: 23px !important;
+}
+
+.article table li::marker {
+    color: #6c50d3;
+    font-size: 3vh !important
+}
+
+
+
+.article ul li::marker {
+    margin: 0px 5px 0px 0px !important;
+}
+
+.article ul {
+    list-style-type: square;
+    /* list-style-position: inside !important; */
+    padding-left: 4vh
+}
+
+.article ol {
+    /* list-style-position: inside !important; */
+    padding-left: 4vh
+}
+
+.article table ul li {
+    border: none;
+}
+
+.article table ol li {
+    border: none;
+}
+
+.article table {
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.article table img {
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 5px;
+    border-radius: 5px !important;
+}
+
+.article table {
+    border: 0 !important;
+}
+
+
+.article table tbody tr td {
+    border: 1px solid #6c50d3 !important;
+}
+
+.article .bungkuslinkdownload {
+    display: flex;
+    justify-content: center;
+}
+
+.article .linkdownload a {
+    width: 100%;
+    padding: 10px 5px !important;
+    background: #ffc212 !important;
+    color: #6c50d3 !important;
+    font-size: 1.5em !important;
+    font-weight: 900 !important;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.article .linkdownload a:hover {
+    background: #6c50d3 !important;
+    color: #ffc212 !important;
+    border-radius: 5px;
+}
+
+
+.article .text-tengah span {
+    display: block !important;
+    text-align: center !important;
+    color: #6c50d3 !important;
+    font-weight: 900 !important;
+}
+
+
+.article em {
+    font-size: 0.9em !important;
+    color: #4C5B5C !important;
+    /* content: "wdwda"; */
+}
+
+
+/* SAMPING KANAN */
+.article .kanan {
+    grid-area: 1/17/2/24;
+    height: fit-content;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px 20px 0 0;
+    box-shadow: rgb(0 0 0 / 5%) 0px 4px 8px 0px, rgb(0 0 0 / 5%) 0px 6px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+
+
+
+.article .kanan h2 {
+    border-radius: 20px 0 0 0;
+    padding: 10px 10px;
+    margin: 0;
+    background-color: #6c50d3;
+    color: #fff;
+    width: fit-content;
+}
+
+.article .kanan .sampingwapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.article .kanan .bungkussamping {
+    display: flex;
+    padding: 20px;
+}
+
+.article .kanan .bungkussamping .sebelahkiri {
+    width: 80%;
+}
+
+.article .kanan .bungkussamping .sebelahkiri .judul {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-sekunder)
+}
+
+.article .kanan .bungkussamping .sebelahkiri .tanggalsamping {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-sekunder)
+}
+
+
+.article .kanan .bungkussamping .sebelahkanan {
+    width: 30%;
+    height: 70px;
+    border-radius: 7px;
+    padding-left: 10px;
+}
+
+.article .kanan .bungkussamping .sebelahkanan img {
+    border-radius: 7px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.article .kanan .bungkussamping:hover {
+    background-color: var(--color-body);
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+/* KOMENTAR */
+.article .tengah {
+    grid-area: 2/2/3/17;
+    box-shadow: rgb(0 0 0 / 5%) 0px 4px 8px 0px, rgb(0 0 0 / 5%) 0px 6px 20px 0px;
+    border-radius: 5vh;
+    margin: 5vh 0;
+    padding: 10px;
+    background-color: var(--color-putih);
+}
+
+.article .tengah .komentar {
+    width: 100%;
+}
+
+
+/* SHARE */
+.share {
+    height: 100vh;
+    width: 30px;
+    position: fixed;
+    left: 0;
+}
+
+.share .dalamshare {
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(1) {
+    width: 57px;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(2) {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    flex-direction: column;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(3) {
+    width: 57px;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(4) {
+    width: 47px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+
+.share .dalamshare img {
+    min-width: 100%;
+    max-width: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+}
+
+
+.share .dalamshare .bungkusgambar:nth-child(3) img {
+    min-width: 102%;
+    max-width: 102%;
+    opacity: 0.5;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(4) img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 87%;
+    opacity: 0.5;
+}
+
+.share .dalamshare img:hover {
+    opacity: 1;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(4) img:hover {
+    opacity: 1;
+}
+
+.share .dalamshare .bungkusgambar:nth-child(3) img:hover {
+    opacity: 1;
+}
+
+
+/* SHAREMOBILE */
+.shareI {
+    display: none;
+}
+
+.shareI .dalamshareI {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(1) {
+    width: 57px;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(2) {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(3) {
+    width: 57px;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(4) {
+    width: 47px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+
+.shareI .dalamshareI img {
+    min-width: 100%;
+    max-width: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+}
+
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(3) img {
+    min-width: 102%;
+    max-width: 102%;
+    opacity: 0.5;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(4) a {
+    display: flex;
+    align-items: flex-start;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(4) img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 80%;
+    height: 46px;
+    opacity: 0.5;
+}
+
+.shareI .dalamshareI img:hover {
+    opacity: 1;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(4) img:hover {
+    opacity: 1;
+}
+
+.shareI .dalamshareI .bungkusgambarI:nth-child(3) img:hover {
+    opacity: 1;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+    /* UTAMA */
+    .artikelwapper {
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-body);
+    }
+
+
+    .isiartikel {
+        width: 95%;
+    }
+
+
+
+    .article {
+        margin: 30px 0;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 50px;
+    }
+
+
+    /* isinya */
+    .artikelwapper {
+        width: 100%x;
+    }
+
+    .article {
+        grid-template-rows: 1fr auto auto !important;
+        column-gap: 0;
+        margin-top: 10px;
+    }
+
+    .article .kiri {
+        grid-area: 1/1/2/24;
+        padding: 20px 20px;
+    }
+
+    .article .kiri .judul h1 {
+        font-size: 24px;
+    }
+
+    .article .kiri .tanggal {
+        font-size: 16px;
+    }
+
+    .article .gambar {
+        height: 200px;
+    }
+
+    .article .posting {
+        font-size: 16px;
+    }
+
+
+    .article .posting span {
+        font-size: 16px;
+    }
+
+    .article .posting p {
+        font-size: 16px;
+    }
+
+
+    .article li span strong {
+        font-size: 18px !important;
+    }
+
+    .article li strong span {
+        font-size: 18px !important;
+    }
+
+
+    .article li span {
+        font-size: 18px !important;
+    }
+
+    .article li strong {
+        font-size: 18px !important;
+
+    }
+
+
+    .article span strong {
+        font-size: 18px !important;
+
+    }
+
+    .article strong span {
+        font-size: 18px !important;
+    }
+
+    .article li::marker {
+        font-size: 18px !important;
+    }
+
+    .article table li::marker {
+        font-size: 2.5vh !important
+    }
+
+
+    /* KANAN */
+    .article .kanan {
+        grid-area: 3/1/4/24;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+
+    /* KOMENTAR */
+
+    .article .tengah .komentar {
+        width: 100%;
+    }
+
+    .article .tengah {
+        grid-area: 2/1/3/24;
+    }
+
+    /* SHARE */
+    .share {
+        display: none;
+    }
+
+    /* SHAREMOBILE */
+    .shareI {
+        display: block;
+    }
+}
