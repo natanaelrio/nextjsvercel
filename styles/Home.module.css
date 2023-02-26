@@ -105,6 +105,10 @@
       width: 95%;
   }
 
+  .luarcardwarp a {
+    width: 100%;
+  }
+
   .bungkuscard {
       margin: 20px 0;
       width: 100%;
