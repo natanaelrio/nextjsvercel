@@ -40,14 +40,17 @@ export default function Home(props: BlogProps) {
     if (cari) {
       setLoading(true)
       setTimeout(() => {
-        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10`)
+        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10`,
+          {
+            mode: 'no-cors',
+          })
           .then(res => res.json())
           .then((e) => {
             setDatacari(e)
             setLoading(false)
           })
       }, 2000)
-      
+
     }
   }
 
