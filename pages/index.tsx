@@ -34,16 +34,18 @@ export default function Home(props: BlogProps) {
 
   const [cari, setCari] = useState("");
 
-  if (cari) {
+  const headCari = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (cari) {
 
-    fetch(`https://duateman.com/j.php?cari=${cari}`)
-      .then(res => res.json())
-      .then((data) => {
-        console.log(data);
+      fetch(`https://duateman.com/j.php?cari=${cari}`)
+        .then(res => res.json())
+        .then((e) => {
+          console.log(e);
 
-      })
+        })
+    }
   }
-
 
 
 
@@ -79,7 +81,7 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.tombolstart}>
                 <Link href="#artikel" scroll={false}><button>Baca Artikel</button></Link>
               </div>
-              <form action="./" method='get' onSubmit={setCari}>
+              <form action="./" method='get' onSubmit={headCari}>
                 <input type="text" value={cari} onChange={(e: any) => setCari(e.target.value)} />
                 <button type="submit" >Submit</button>
               </form>
