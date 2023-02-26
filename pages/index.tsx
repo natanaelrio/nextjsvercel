@@ -36,7 +36,7 @@ export default function Home(props: BlogProps) {
 
   if (cari) {
 
-    fetch(`http://localhost/dataJ/uidslug.php?cari=${cari}`)
+    fetch(`https://duateman.com/j.php?cari=${cari}`)
       .then(res => res.json())
       .then((data) => {
         console.log(data);
