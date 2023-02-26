@@ -5,7 +5,6 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
 import React, { useEffect, useState } from 'react'
-import { type } from 'os'
 
 
 
@@ -33,19 +32,30 @@ export default function Home(props: BlogProps) {
 
 
   const [cari, setCari] = useState("");
+  const [datacari, setDatacari] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const headCari = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (cari) {
-
-      fetch(`https://duateman.com/j.php?cari=${cari}`)
-        .then(res => res.json())
-        .then((e) => {
-          console.log(e);
-
-        })
+      setLoading(true)
+      setTimeout(() => {
+        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10`)
+          .then(res => res.json())
+          .then((e) => {
+            setDatacari(e)
+            setLoading(false)
+          })
+      }, 2000)
+      
     }
   }
+
+  if (loading) return <p>Loading...</p>
+  if (!datacari) return <p>No profile data</p>
+
+
+
 
 
 
@@ -79,14 +89,24 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.judul}>DuaTeman.com</div>
               <div className={stylesb.deskripsi}>Temukan sudut pandang baru mengenai anime dan komik manga serta manhwa</div>
               <div className={stylesb.tombolstart}>
-                <Link href="#artikel" scroll={false}><button>Baca Artikel</button></Link>
+                <Link href="#artikel" scroll={false}><button>Baca Artikel</button></Link> <Link href="#artikel" scroll={false}><button>Baca Komik</button></Link>
               </div>
-              <form action="./" method='get' onSubmit={headCari}>
-                <input type="text" value={cari} onChange={(e: any) => setCari(e.target.value)} />
-                <button type="submit" >Submit</button>
+
+
+              <form className={stylesb.f} action="./" method='get' onSubmit={headCari}>
+                <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { setCari(e.target.value) }} />
+                <button type="submit" >Cari</button>
               </form>
 
-
+              {datacari.map((e: any) => {
+                return (
+                  <>
+                    <p>
+                      {e.judul}
+                    </p>
+                  </>
+                )
+              })}
 
             </div>
 

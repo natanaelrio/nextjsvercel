@@ -67,27 +67,25 @@
 .katakata .judul {
     font-size: 50px;
     font-weight: 900;
-    color: #6c50d3;
+    color: #FEA82F;
 }
 
 .katakata .deskripsi {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 400;
     color: #3a4258;
 }
 
 .katakata button  {
-    margin: 10px 0;
+    margin: 20px 0 0 0;
     outline: none;
-    background-color: #6c50d3;
+    background-color: #3a4258;
     color: #fff;
     border: 0;
-    padding: 15px 25px;
+    padding: 7px 25px;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 16px;
 }
-
-
 
 .katakata button:hover {
     cursor: pointer;
@@ -95,6 +93,43 @@
     color: #6c50d3;
     border: 1px solid;
     transition: all 0.1s ease;
+}
+
+
+.katakata .f input  {
+    margin: 10px 0;
+    outline: none;
+    background-color: #3a4258;
+    color: #fff;
+    border: 0;
+    padding: 20px 25px;
+    font-size: 20px;
+}
+
+
+.katakata .f input::placeholder {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.katakata .f button  {
+    margin: 10px 0;
+    outline: none;
+    background-color: #6c50d3;
+    color: #fff;
+    border: 0;
+    padding: 20px 25px;
+    border-radius: 0;
+    font-size: 20px;
+}
+
+.katakata .f button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #6c50d3;
+    border: 1px solid;
+    transition: all 0.3s ease;
 }
 
 
@@ -155,9 +190,30 @@
 
     .katakata button {
         margin: 10px 0;
-        padding: 10px 20px;
+        padding: 7px 20px;
         border-radius: 10px;
-        font-size: 20px;
+        font-size: 12px;
+    }
+
+
+
+    .katakata .f input  {
+        margin: 5px 0;
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+    
+    
+    .katakata .f input::placeholder {
+        color: #fff;
+        font-size: 14px;
+        opacity: 0.5;
+    }
+    
+    .katakata .f button  {
+        margin: 5px 0;
+        padding: 12px 15px;
+        font-size: 15px;
     }
 
 
