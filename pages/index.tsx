@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
 import React, { useEffect, useState } from 'react'
+import { type } from 'os'
 
 
 
@@ -16,6 +17,8 @@ interface Post {
   urlgambar: string;
   tanggalsamping: string;
   from: any;
+  cari: any;
+  setCari: any;
 }
 
 interface BlogProps {
@@ -25,7 +28,22 @@ interface BlogProps {
 }
 
 export default function Home(props: BlogProps) {
-  const { datablog, datablogdua} = props;
+  const { datablog, datablogdua } = props;
+
+
+
+  const [cari, setCari] = useState("");
+
+  if (cari) {
+
+    fetch(`http://localhost/dataJ/uidslug.php?cari=${cari}`)
+      .then(res => res.json())
+      .then((data) => {
+        console.log(data);
+
+      })
+  }
+
 
 
 
@@ -61,6 +79,12 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.tombolstart}>
                 <Link href="#artikel" scroll={false}><button>Baca Artikel</button></Link>
               </div>
+              <form action="./" method='get' onSubmit={setCari}>
+                <input type="text" value={cari} onChange={(e: any) => setCari(e.target.value)} />
+                <button type="submit" >Submit</button>
+              </form>
+
+
 
             </div>
 
