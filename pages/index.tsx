@@ -44,7 +44,7 @@ export default function Home(props: BlogProps) {
           method: 'GET',
           mode: 'no-cors',
           headers: {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'application/json'
           }
         })
           .then(res => res.json())
