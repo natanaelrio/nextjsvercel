@@ -202,6 +202,7 @@ export default function DetailBlog(props: BlogProps) {
 
 export async function getServerSideProps(context: any) {
     const slug = context.params.slug;
+
     const [datablogRes, datablogduaRes] = await Promise.all([
         fetch(`${process.env.API_ENDPOINT}?cari=${slug}`),
         fetch(`${process.env.API_ENDPOINT}?limit=7`)

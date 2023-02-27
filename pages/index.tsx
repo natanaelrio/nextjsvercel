@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 
 
@@ -26,10 +27,11 @@ interface BlogProps {
   datablogcari: Post[]
 }
 
+
 export default function Home(props: BlogProps) {
   const { datablog, datablogdua } = props;
 
-
+  const router = useRouter();
 
   const [cari, setCari] = useState("");
   const [datacari, setDatacari] = useState([]);
@@ -37,24 +39,8 @@ export default function Home(props: BlogProps) {
 
   const headCari = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (cari) {
-      setLoading(true)
-      setTimeout(() => {
-        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10`, {
-          method: 'GET',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-          .then(res => res.json())
-          .then((e) => {
-            setDatacari(e)
-            setLoading(false)
-          })
-      }, 2000)
-
-    }
+      setLoading(true);
+      router.push(`/search/${cari}`)
   }
 
   if (loading) return <p>Loading...</p>
@@ -178,18 +164,21 @@ export default function Home(props: BlogProps) {
 
 export async function getServerSideProps() {
 
-  const [datablogRes, datablogduaRes] = await Promise.all([
+  const [datablogRes, datablogduaRes, datablogcariRes] = await Promise.all([
     fetch(`${process.env.API_ENDPOINT}?limit=50`),
-    fetch(`${process.env.API_ENDPOINT}?limit=4`)
+    fetch(`${process.env.API_ENDPOINT}?limit=4`),
+    fetch(`${process.env.API_ENDPOINT}?limit=10`)
   ]);
-  const [datablog, datablogdua] = await Promise.all([
+  const [datablog, datablogdua, datablogcari] = await Promise.all([
     datablogRes.json(),
-    datablogduaRes.json()
+    datablogduaRes.json(),
+    datablogcariRes.json()
   ]);
   return {
     props: {
       datablog,
-      datablogdua
+      datablogdua,
+      datablogcari
     }
   };
 
