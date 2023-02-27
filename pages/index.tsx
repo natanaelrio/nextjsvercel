@@ -4,7 +4,7 @@ import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 

@@ -1,14 +1,30 @@
-import { useRouter } from "next/router"
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import Head from 'next/head'
+import styles from '@/styles/Home.module.css'
 
-import styles from '../../styles/Home.module.css'
 
 export default function UserDetail({ req }) {
   const router = useRouter()
-  const { id } = router.query
+  const { search } = router.query
+
+
+
+  const [tambah, setTambah] = useState(" ");
+
+  const headTambah = (e) => {
+    const parsed = parseInt(`${search}`);
+    const total = e + parsed
+      return setTambah(total)
+  }
+
+
+
+  console.info(tambah);
+
   return (
     <>
       <Head>
@@ -33,15 +49,16 @@ export default function UserDetail({ req }) {
 
         <div className={styles.tai} >
 
-          <div className={styles.judullistartikelluar} style={{marginTop: '100px', display: 'flex', justifyContent: 'center'}} id="artikel">
-            <div className={styles.judullistartikel}>Pencarian Dari {id}</div>
+          <div className={styles.judullistartikelluar} style={{ marginTop: '100px', display: 'flex', justifyContent: 'center' }} id="artikel">
+            <div className={styles.judullistartikel}>Pencarian Dari {search}</div>
           </div>
           <div className={styles.luarcard}>
             <div className={styles.luarcardwarp}>
-              {req.map((dataku) => {
+
+              {!req || req.length == 0 ? <p>Gak ADE</p> : req.map((dataku) => {
                 return (
                   <>
-                    <Link href={dataku.slug}>
+                    <Link key={dataku.uid} href={dataku.slug}>
                       <div className={styles.bungkuscard}>
                         <div className={styles.gambarartikel}>
                           <div className={styles.view}>
@@ -56,27 +73,35 @@ export default function UserDetail({ req }) {
                         </div>
                       </div>
                     </Link>
+
                   </>
                 )
               })}
             </div>
           </div>
         </div>
+        <button onClick={()=>headTambah(5)}>CEK123</button>
+        <Link href="/search/{search}/{page}" >loadMore</Link>
+
         <Footer />
       </body>
     </>
   )
+
 }
 
 
 
 
 
+
 export async function getServerSideProps(ctx) {
-  const cari = ctx.query.id
+  const cari = ctx.query.search
+
+  const page = 5
 
   console.info(ctx.params)
-  const res = await fetch(`${process.env.API_ENDPOINT}?cari=${cari}&limit=10000`)
+  const res = await fetch(`${process.env.API_ENDPOINT}?cari=${cari}&limit=${page}`)
   const req = await res.json()
 
   return {
