@@ -139,7 +139,7 @@ export default function Home(props: BlogProps) {
 
         <div className={styles.tai} >
 
-          <div className={styles.wapper} id="artikel">
+          <div className={styles.judullistartikelluar} id="artikel">
             <div className={styles.judullistartikel}>Daftar Artikel</div>
           </div>
           <div className={styles.luarcard}>
