@@ -3,7 +3,17 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-    margin-top: 50px;
+    margin-top: 100px;
+    padding: 10px;
+    background-color: var(--color-atas);
+
+}
+
+
+.wapper2 {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 }
 
 
@@ -11,6 +21,9 @@
 /* CARD */
 .luarcardpopuler {
     width: 500px;
+    height: 360px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .luarcardpopuler .wapper {
@@ -21,14 +34,14 @@
 
 .cardpopuleratas {
     margin: 10px;
-    width: 230px;
+    width: 200px;
     height: 150px;
     position: relative;
 }
 
 .cardpopuleratas .gambar {
     height: 150px;
-    width: 230px;
+    width: 200px;
 }
 
 .cardpopuleratas .judul {
@@ -67,7 +80,7 @@
 .katakata .judul {
     font-size: 50px;
     font-weight: 900;
-    color: #FEA82F;
+    color: #E08D79;
 }
 
 .katakata .deskripsi {
@@ -76,7 +89,7 @@
     color: #3a4258;
 }
 
-.katakata button  {
+.katakata button {
     margin: 20px 0 0 0;
     outline: none;
     background-color: #3a4258;
@@ -96,7 +109,7 @@
 }
 
 
-.katakata .f input  {
+.katakata .f input {
     margin: 10px 0;
     outline: none;
     background-color: #3a4258;
@@ -113,7 +126,7 @@
     opacity: 0.5;
 }
 
-.katakata .f button  {
+.katakata .f button {
     margin: 10px 0;
     outline: none;
     background-color: #6c50d3;
@@ -135,8 +148,16 @@
 
 
 @media (min-width: 320px) and (max-width: 480px) {
+
     .wapper {
+        margin: 10px 0;
+        margin-top: 50px;
+    }
+
+    .wapper2 {
+        width: 100vw;
         flex-direction: column;
+        align-items: center;
     }
 
 
@@ -145,24 +166,30 @@
 
     .luarcardpopuler {
         width: 95%;
+        height: auto;
+        align-items: flex-start;
+        justify-content: center;
     }
 
     .luarcardpopuler .wapper {
         display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
+
     }
 
     .cardpopuleratas {
         margin: 10px;
-        width: 95%;
+        width: 40%;
         height: 150px;
         position: relative;
     }
 
     .cardpopuleratas .gambar {
         height: 150px;
-        width: 95%;
+        width: 100%;
+    }
+
+    .cardpopuleratas .judul {
+        font-size: 12px;
     }
 
 
@@ -174,7 +201,7 @@
     /* katakata */
     .katakata {
         width: 95%;
-        margin-top:20px;
+        margin-top: 20px;
     }
 
     .katakata .judul {
@@ -197,20 +224,20 @@
 
 
 
-    .katakata .f input  {
+    .katakata .f input {
         margin: 5px 0;
         padding: 12px 15px;
         font-size: 15px;
     }
-    
-    
+
+
     .katakata .f input::placeholder {
         color: #fff;
         font-size: 14px;
         opacity: 0.5;
     }
-    
-    .katakata .f button  {
+
+    .katakata .f button {
         margin: 5px 0;
         padding: 12px 15px;
         font-size: 15px;

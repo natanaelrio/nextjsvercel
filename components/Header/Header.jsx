@@ -1,10 +1,10 @@
 
-import styles from "./Header.module.css"
-import Link from "next/link"
-import Image from "next/image"
-import Dua from "../../Asset/Gambar/duaP.svg";
+import styles from './Header.module.css'
+import Link from 'next/link'
+import Image from 'next/image'
+import Dua from '../../Asset/Gambar/duaPw.svg'
 
-export default function Header() {
+export default function Header () {
   return (
     <>
       <div className={styles.navigasi}>

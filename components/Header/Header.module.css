@@ -2,11 +2,11 @@
     padding: 10px 0;
     width: 100%;
     height: 35px;
-    background-color: #6c50d3;
+    background-color: var(--color-atas);
     position: fixed;
     top: 0;
     z-index: 1000;
-    color: #fff;
+    color: var(--color-sekunder);
 }
 
 .navigasi .navwarp {
@@ -34,13 +34,13 @@
     list-style: none;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: var(--color-sekunder);
 }
 
 
 .navigasi .pilihan ul .satu a:-webkit-any-link {
     margin: 0 10px;
-    color: #fff;
+    color: var(--color-sekunder);
     font-weight: 500;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .navigasi .pilihan ul  .satu:nth-child(1) a:-webkit-any-link {
-    background-color: #fff;
-    color: #764AF1;
+    background-color:var(--color-sekunder);
+    color: var(--color-putih);
     font-weight: 500;
     padding: 5px 25px;
 }

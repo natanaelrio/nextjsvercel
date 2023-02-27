@@ -40,12 +40,13 @@ export default function Home(props: BlogProps) {
     if (cari) {
       setLoading(true)
       setTimeout(() => {
-        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10` ,{
+        fetch(`https://duateman.com/j.php?cari=${cari}&limit=10`, {
           method: 'GET',
           mode: 'no-cors',
           headers: {
-          'Content-Type': 'text/plain',
-          }})
+            'Content-Type': 'text/plain',
+          }
+        })
           .then(res => res.json())
           .then((e) => {
             setDatacari(e)
@@ -85,11 +86,12 @@ export default function Home(props: BlogProps) {
       <body>
 
         <Header />
-        <div className={styles.tai} >
 
 
 
-          <div className={stylesb.wapper}>
+
+        <div className={stylesb.wapper}>
+          <div className={stylesb.wapper2}>
             <div className={stylesb.katakata}>
               <div className={stylesb.judul}>DuaTeman.com</div>
               <div className={stylesb.deskripsi}>Temukan sudut pandang baru mengenai anime dan komik manga serta manhwa</div>
@@ -133,8 +135,9 @@ export default function Home(props: BlogProps) {
               </div>
             </div>
           </div>
+        </div>
 
-
+        <div className={styles.tai} >
 
           <div className={styles.wapper} id="artikel">
             <div className={styles.judullistartikel}>Daftar Artikel</div>
