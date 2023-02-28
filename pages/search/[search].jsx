@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-
-export default function UserDetail({ req }) {
+// eslint-disable-next-line react/prop-types
+export default function UserDetail ({ req }) {
   const router = useRouter()
   const { search } = router.query
 
+  const [posts, setPosts] = useState(req)
 
-
-  const [tambah, setTambah] = useState(" ");
-
-  const headTambah = (e) => {
-    const parsed = parseInt(`${search}`);
-    const total = e + parsed
-      return setTambah(total)
+  const getMorePost = async () => {
+    const res = await fetch(`${process.env.API_ENDPOINT}?cari=${search}&limit=8&offlimit=${posts.length}`)
+    const newPost = await res.json()
+    setPosts(posts => [...posts, ...newPost])
   }
 
-
-
-  console.info(tambah);
+  console.log(posts)
 
   return (
     <>
@@ -53,55 +50,54 @@ export default function UserDetail({ req }) {
             <div className={styles.judullistartikel}>Pencarian Dari {search}</div>
           </div>
           <div className={styles.luarcard}>
-            <div className={styles.luarcardwarp}>
+            <InfiniteScroll
+              dataLength={posts.length}
+              next={getMorePost}
+              hasMore={true}
+              loader={<center>Loading...</center>}
+              endMessage={
+                <center>sudahhhh</center>
+              }
+            >
+              <div className={styles.luarcardwarp}>
 
-              {!req || req.length == 0 ? <p>Gak ADE</p> : req.map((dataku) => {
-                return (
-                  <>
-                    <Link key={dataku.uid} href={dataku.slug}>
-                      <div className={styles.bungkuscard}>
-                        <div className={styles.gambarartikel}>
-                          <div className={styles.view}>
-                            {dataku.viewartikel}
+                {!posts || posts.length == 0 ? <p>Gak ADE</p> : posts.map((dataku) => {
+                  return (
+                    <>
+                      <Link key={dataku.uid} href={dataku.slug}>
+                        <div className={styles.bungkuscard}>
+                          <div className={styles.gambarartikel}>
+                            <div className={styles.view}>
+                              {dataku.viewartikel}
+                            </div>
+                            <img src={dataku.urlgambar} alt={dataku.judul}></img>
+                            <div className="linierartikel"></div>
                           </div>
-                          <img src={dataku.urlgambar} alt={dataku.judul}></img>
-                          <div className="linierartikel"></div>
+                          <div className={styles.bungkusdesartikel}>
+                            <div className={styles.tanggal}>{dataku.tanggalsamping}</div>
+                            <div className={styles.judul} >{dataku.judul}</div>
+                          </div>
                         </div>
-                        <div className={styles.bungkusdesartikel}>
-                          <div className={styles.tanggal}>{dataku.tanggalsamping}</div>
-                          <div className={styles.judul} >{dataku.judul}</div>
-                        </div>
-                      </div>
-                    </Link>
+                      </Link>
 
-                  </>
-                )
-              })}
-            </div>
+                    </>
+                  )
+                })}
+              </div>
+            </InfiniteScroll>
           </div>
         </div>
-        <button onClick={()=>headTambah(5)}>CEK123</button>
-        <Link href="/search/{search}/{page}" >loadMore</Link>
-
         <Footer />
       </body>
     </>
   )
-
 }
-
-
-
-
-
 
 export async function getServerSideProps(ctx) {
   const cari = ctx.query.search
 
-  const page = 5
-
   console.info(ctx.params)
-  const res = await fetch(`${process.env.API_ENDPOINT}?cari=${cari}&limit=${page}`)
+  const res = await fetch(`${process.env.API_ENDPOINT}?cari=${cari}&limit=8`)
   const req = await res.json()
 
   return {

@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import Link from "next/link";
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 interface Post {
@@ -39,8 +39,8 @@ export default function Home(props: BlogProps) {
 
   const headCari = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-      setLoading(true);
-      router.push(`/search/${cari}`)
+    setLoading(true);
+    router.push(`/search/${cari}`)
   }
 
   if (loading) return <p>Loading...</p>
@@ -48,8 +48,16 @@ export default function Home(props: BlogProps) {
 
 
 
+  const [posts, setPosts] = useState(datablog)
 
 
+  const getMorePost = async () => {
+    const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&offlimit=${posts.length}`)
+    const newPosts = await res.json()
+    setPosts(posts => [...posts, ...newPosts])
+  }
+
+  console.info(posts)
 
   return (
     <>
@@ -129,30 +137,42 @@ export default function Home(props: BlogProps) {
             <div className={styles.judullistartikel}>Daftar Artikel</div>
           </div>
           <div className={styles.luarcard}>
-            <div className={styles.luarcardwarp}>
-              {datablog.map((dataku) => {
+            <InfiniteScroll
+              dataLength={posts.length}
+              next={getMorePost}
+              hasMore={true}
+              loader={<center>Loading...</center>}
+              endMessage={
+                <center>sudahhhh</center>
+              }
+            >
+              <div className={styles.luarcardwarp}>
 
-                return (
-                  <>
-                    <Link href={dataku.slug}>
-                      <div className={styles.bungkuscard}>
-                        <div className={styles.gambarartikel}>
-                          <div className={styles.view}>
-                            {dataku.viewartikel}
+
+                {posts.map((dataku) => {
+
+                  return (
+                    <>
+                      <Link href={dataku.slug}>
+                        <div className={styles.bungkuscard}>
+                          <div className={styles.gambarartikel}>
+                            <div className={styles.view}>
+                              {dataku.viewartikel}
+                            </div>
+                            <img src={dataku.urlgambar} alt={dataku.judul}></img>
+                            <div className="linierartikel"></div>
                           </div>
-                          <img src={dataku.urlgambar} alt={dataku.judul}></img>
-                          <div className="linierartikel"></div>
+                          <div className={styles.bungkusdesartikel}>
+                            <div className={styles.tanggal}>{dataku.tanggalsamping}</div>
+                            <div className={styles.judul} >{dataku.judul}</div>
+                          </div>
                         </div>
-                        <div className={styles.bungkusdesartikel}>
-                          <div className={styles.tanggal}>{dataku.tanggalsamping}</div>
-                          <div className={styles.judul} >{dataku.judul}</div>
-                        </div>
-                      </div>
-                    </Link>
-                  </>
-                )
-              })}
-            </div>
+                      </Link>
+                    </>
+                  )
+                })}
+              </div>
+            </InfiniteScroll>
           </div>
         </div>
         <Footer />
@@ -165,7 +185,7 @@ export default function Home(props: BlogProps) {
 export async function getServerSideProps() {
 
   const [datablogRes, datablogduaRes, datablogcariRes] = await Promise.all([
-    fetch(`${process.env.API_ENDPOINT}?limit=50`),
+    fetch(`${process.env.API_ENDPOINT}?limit=8`),
     fetch(`${process.env.API_ENDPOINT}?limit=4`),
     fetch(`${process.env.API_ENDPOINT}?limit=10`)
   ]);
