@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Footer from '../../components/Footer/Footer'
@@ -8,11 +8,12 @@ import styles from '@/styles/Home.module.css'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 // eslint-disable-next-line react/prop-types
-export default function UserDetail ({ req }) {
+export default function UserDetail(props) {
   const router = useRouter()
   const { search } = router.query
 
-  const [posts, setPosts] = useState(req)
+  // eslint-disable-next-line react/prop-types
+  const [posts, setPosts] = useState(props.req)
 
   const getMorePost = async () => {
     const res = await fetch(`${process.env.API_ENDPOINT}?cari=${search}&limit=8&offlimit=${posts.length}`)
@@ -20,7 +21,11 @@ export default function UserDetail ({ req }) {
     setPosts(posts => [...posts, ...newPost])
   }
 
-  console.log(posts)
+  useEffect(() => {
+    setTimeout(() => {
+
+    }, 2000)
+  })
 
   return (
     <>
@@ -39,6 +44,7 @@ export default function UserDetail ({ req }) {
         <meta name="robots" content="index, follow" />
         <meta property="og:image" content="" />
         <link href="./duaW.svg" rel="shortcut icon" type="image/x-icon" />
+
       </Head>
       <body>
 
@@ -64,7 +70,7 @@ export default function UserDetail ({ req }) {
                 {!posts || posts.length == 0 ? <p>Gak ADE</p> : posts.map((dataku) => {
                   return (
                     <>
-                      <Link key={dataku.uid} href={dataku.slug}>
+                      <Link key={dataku.uid} href={`/${dataku.slug}`}>
                         <div className={styles.bungkuscard}>
                           <div className={styles.gambarartikel}>
                             <div className={styles.view}>
@@ -96,7 +102,6 @@ export default function UserDetail ({ req }) {
 export async function getServerSideProps(ctx) {
   const cari = ctx.query.search
 
-  console.info(ctx.params)
   const res = await fetch(`${process.env.API_ENDPOINT}?cari=${cari}&limit=8`)
   const req = await res.json()
 

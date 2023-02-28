@@ -30,26 +30,9 @@ interface BlogProps {
 
 export default function Home(props: BlogProps) {
   const { datablog, datablogdua } = props;
-
-  const router = useRouter();
-
   const [cari, setCari] = useState("");
-  const [datacari, setDatacari] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const headCari = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    router.push(`/search/${cari}`)
-  }
-
-  if (loading) return <p>Loading...</p>
-  if (!datacari) return <p>No profile data</p>
-
-
 
   const [posts, setPosts] = useState(datablog)
-
 
   const getMorePost = async () => {
     const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&offlimit=${posts.length}`)
@@ -76,6 +59,7 @@ export default function Home(props: BlogProps) {
         <meta name="robots" content="index, follow" />
         <meta property="og:image" content="" />
         <link href="./duaW.svg" rel="shortcut icon" type="image/x-icon" />
+        
       </Head>
       <body>
 
@@ -94,29 +78,21 @@ export default function Home(props: BlogProps) {
               </div>
 
 
-              <form className={stylesb.f} action="./" method='get' onSubmit={headCari}>
+              <form className={stylesb.f} method='get' action={`/search/${cari}`} >
                 <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { setCari(e.target.value) }} />
                 <button type="submit" >Cari</button>
               </form>
 
-              {datacari.map((e: any) => {
-                return (
-                  <>
-                    <p>
-                      {e.judul}
-                    </p>
-                  </>
-                )
-              })}
+
 
             </div>
 
             <div className={stylesb.luarcardpopuler} >
               <div className={stylesb.wapper}>
-                {datablogdua?.map((dataku) => {
+                {datablogdua?.map((dataku,i) => {
                   return (
                     <>
-                      <div className={stylesb.cardpopuleratas} key={dataku.uid}>
+                      <div className={stylesb.cardpopuleratas} key={i}>
                         <div className={stylesb.gambar}>
                           <img src={dataku.urlgambar} alt={dataku.judul}></img>
                         </div>
@@ -131,9 +107,9 @@ export default function Home(props: BlogProps) {
           </div>
         </div>
 
-        <div className={styles.tai} >
+        <div className={styles.tai} id="artikel" >
 
-          <div className={styles.judullistartikelluar} id="artikel">
+          <div className={styles.judullistartikelluar} >
             <div className={styles.judullistartikel}>Daftar Artikel</div>
           </div>
           <div className={styles.luarcard}>
@@ -149,11 +125,11 @@ export default function Home(props: BlogProps) {
               <div className={styles.luarcardwarp}>
 
 
-                {posts.map((dataku) => {
+                {posts.map((dataku,i) => {
 
                   return (
                     <>
-                      <Link href={dataku.slug}>
+                      <Link key={i} href={dataku.slug}>
                         <div className={styles.bungkuscard}>
                           <div className={styles.gambarartikel}>
                             <div className={styles.view}>
@@ -184,21 +160,18 @@ export default function Home(props: BlogProps) {
 
 export async function getServerSideProps() {
 
-  const [datablogRes, datablogduaRes, datablogcariRes] = await Promise.all([
+  const [datablogRes, datablogduaRes] = await Promise.all([
     fetch(`${process.env.API_ENDPOINT}?limit=8`),
     fetch(`${process.env.API_ENDPOINT}?limit=4`),
-    fetch(`${process.env.API_ENDPOINT}?limit=10`)
   ]);
-  const [datablog, datablogdua, datablogcari] = await Promise.all([
+  const [datablog, datablogdua] = await Promise.all([
     datablogRes.json(),
-    datablogduaRes.json(),
-    datablogcariRes.json()
+    datablogduaRes.json()
   ]);
   return {
     props: {
       datablog,
-      datablogdua,
-      datablogcari
+      datablogdua
     }
   };
 
