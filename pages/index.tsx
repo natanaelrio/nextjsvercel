@@ -44,7 +44,7 @@ export default function Home(props: BlogProps) {
   const [tampung, setTampung] = useState([])
 
 
-  const headSubmit = async (e) => {
+  const headSubmit = async (e: React.SetStateAction<string>) => {
     setCari(e)
     if (cari) {
       const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
