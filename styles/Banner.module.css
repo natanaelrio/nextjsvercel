@@ -119,22 +119,41 @@
     position: absolute;
     color: #3a4258;
     background-color: #fff;
-    list-style: none;;
+    list-style: none;
     width: 500px;
+    border-radius: 10px 10px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
 }
 
 .wapper2 ul li {
-    border: 0.2px solid #3a4258;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 .wapper ul li .link {
-    color:#3a4258
+    color: #3a4258;
+    display: flex;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .wapper ul li .link:hover {
-    color:#3a4258;
+    color: #3a4258;
     text-decoration: underline;
+}
+
+.wapper ul li .link .kiri {
+    width: 90%;
+}
+
+.wapper ul li .link .kanan {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wapper ul li .link .kanan .gambar {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
 }
 
 
@@ -168,7 +187,7 @@
 
 
     .wapper2 .dalamisi {
-        height: 70vh;
+        height: 40vh;
         width: 95%;
     }
 
@@ -181,20 +200,45 @@
         font-size: 17px;
     }
 
+
+
+    .wapper2 .f .pencarian {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+    }
+
     .wapper2 .f input {
+        margin: 10px 0;
+        outline: none;
+        background-color: #fff;
+        color: #3a4258;
+        border: 0;
         padding: 20px 25px;
-        font-size: 12px;
+        font-size: 20px;
+        border-radius: 10px 0 0 10px;
+        width: 50%;
     }
 
-
-    .wapper2 .f input::placeholder {
-        font-size: 14px;
-    }
 
     .wapper2 .f button {
+        margin: 10px 0;
         padding: 20px 25px;
-        font-size: 12px;
+        border-radius: 0;
+        font-size: 20px;
+        border-radius: 0px 10px 10px 0px;
+        width: 30%;
     }
+
+
+
+    /* LIST PENCARIAN */
+
+    .wapper2 ul {
+        width: 100%;
+    }
+
+
 
 
 

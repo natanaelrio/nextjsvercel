@@ -4,7 +4,7 @@ import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { use, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
@@ -42,20 +42,17 @@ export default function Home(props: BlogProps) {
 
   const [cari, setCari] = useState(" ");
   const [tampung, setTampung] = useState([])
-  const hilang = document.getElementById('cek')
+
 
   const headSubmit = async (e) => {
     setCari(e)
-    if (cari.length == false) {
-      hilang.style.display = 'block';
+    if (cari) {
       const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
       const newCari = await res.json();
       setTampung(newCari)
     }
-     if (cari.length  == true)  {
-      hilang.style.display = 'none';
-    }
   }
+
 
   return (
     <>
@@ -99,12 +96,18 @@ export default function Home(props: BlogProps) {
                   <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { headSubmit(e.target.value) }} />
                   <button type="submit" >Cari</button>
                 </div>
-                <ul id='cek'>
+                <ul>
                   {tampung.map((dataku, i) => {
                     return (
                       <>
                         <li>
-                          <Link key={i} href={dataku.slug} className={stylesb.link}>{dataku.judul}</Link></li>
+                          <Link key={i} href={dataku.slug} className={stylesb.link}>
+
+
+                            <div className={stylesb.kiri}>{dataku.judul}</div>
+                            <div className={stylesb.kanan}><Image className={stylesb.gambar}  src={dataku.urlgambar} width={50} height={50}></Image></div>
+                          </Link>
+                        </li>
                       </>
                     )
                   })}
