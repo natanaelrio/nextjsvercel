@@ -4,7 +4,7 @@ import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
@@ -43,7 +43,6 @@ export default function Home(props: BlogProps) {
   const [cari, setCari] = useState(" ");
   const [tampung, setTampung] = useState([])
 
-
   const headSubmit = async (e: React.SetStateAction<string>) => {
     setCari(e)
     if (cari) {
@@ -52,6 +51,11 @@ export default function Home(props: BlogProps) {
       setTampung(newCari)
     }
   }
+
+
+
+  console.log('ini',cari.length !== 0);
+  
 
 
   return (
@@ -97,7 +101,7 @@ export default function Home(props: BlogProps) {
                   <button type="submit" >Cari</button>
                 </div>
                 <ul>
-                  {tampung.map((dataku:any, i) => {
+                  {cari.length !== 0 ?tampung.map((dataku:any, i) => {
                     return (
                       <>
                         <li>
@@ -110,7 +114,9 @@ export default function Home(props: BlogProps) {
                         </li>
                       </>
                     )
-                  })}
+                  }): null
+                  
+                  }
                 </ul>
 
               </form>
