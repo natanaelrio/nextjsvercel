@@ -97,7 +97,7 @@ export default function Home(props: BlogProps) {
                   <button type="submit" >Cari</button>
                 </div>
                 <ul>
-                  {tampung.map((dataku, i) => {
+                  {tampung.map((dataku:any, i) => {
                     return (
                       <>
                         <li>
@@ -105,7 +105,7 @@ export default function Home(props: BlogProps) {
 
 
                             <div className={stylesb.kiri}>{dataku.judul}</div>
-                            <div className={stylesb.kanan}><Image className={stylesb.gambar}  src={dataku.urlgambar} width={50} height={50}></Image></div>
+                            <div className={stylesb.kanan}><Image className={stylesb.gambar}  src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
                           </Link>
                         </li>
                       </>
