@@ -5,9 +5,9 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
 import InfiniteScroll from 'react-infinite-scroll-component';
-
+import Image from 'next/image'
+import Bg from '../Asset/Gambar/1994.jpg'
 
 interface Post {
   uid: number;
@@ -59,7 +59,7 @@ export default function Home(props: BlogProps) {
         <meta name="robots" content="index, follow" />
         <meta property="og:image" content="" />
         <link href="./duaW.svg" rel="shortcut icon" type="image/x-icon" />
-        
+
       </Head>
       <body>
 
@@ -69,41 +69,22 @@ export default function Home(props: BlogProps) {
 
 
         <div className={stylesb.wapper}>
+
+
+
           <div className={stylesb.wapper2}>
-            <div className={stylesb.katakata}>
-              <div className={stylesb.judul}>DuaTeman.com</div>
-              <div className={stylesb.deskripsi}>Temukan sudut pandang baru mengenai anime dan komik manga serta manhwa</div>
-              <div className={stylesb.tombolstart}>
-                <Link href="#artikel" scroll={false}><button>Baca Artikel</button></Link> <Link href="#artikel" scroll={false}><button>Baca Komik</button></Link>
-              </div>
+            <div className={stylesb.bgt}></div>
+            <div className={stylesb.bg}><Image src={Bg} alt="background" /></div>
+            <div className={stylesb.dalamisi}>
 
-
+              <div className={stylesb.judul}>Bosan? Sini dong :)</div>
+              <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
               <form className={stylesb.f} method='get' action={`/search/${cari}`} >
                 <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { setCari(e.target.value) }} />
                 <button type="submit" >Cari</button>
               </form>
-
-
-
             </div>
 
-            <div className={stylesb.luarcardpopuler} >
-              <div className={stylesb.wapper}>
-                {datablogdua?.map((dataku,i) => {
-                  return (
-                    <>
-                      <div className={stylesb.cardpopuleratas} key={i}>
-                        <div className={stylesb.gambar}>
-                          <img src={dataku.urlgambar} alt={dataku.judul}></img>
-                        </div>
-                        <div className={stylesb.judul}>{dataku.judul}</div>
-                        <div className={stylesb.linier}></div>
-                      </div>
-                    </>
-                  )
-                })}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -125,7 +106,7 @@ export default function Home(props: BlogProps) {
               <div className={styles.luarcardwarp}>
 
 
-                {posts.map((dataku,i) => {
+                {posts.map((dataku, i) => {
 
                   return (
                     <>

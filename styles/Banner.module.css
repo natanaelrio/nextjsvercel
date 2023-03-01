@@ -3,8 +3,7 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-    margin-top: 100px;
-    padding: 10px;
+    margin-top: 30px;
     background-color: var(--color-atas);
 }
 
@@ -13,119 +12,81 @@
     display: flex;
     justify-content: center;
     width: 100vw;
-}
-
-
-
-/* CARD */
-.luarcardpopuler {
-    width: 500px;
-    height: 360px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.luarcardpopuler .wapper {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
-.cardpopuleratas {
-    margin: 10px;
-    width: 200px;
-    height: 150px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
     position: relative;
 }
 
-.cardpopuleratas .gambar {
-    height: 150px;
-    width: 200px;
-}
 
-.cardpopuleratas .judul {
-    cursor: pointer;
-    z-index: 2;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-    color: #3a4258;
-    padding: 10px;
-    background-color: #fff;
-    opacity: 0.8;
-}
-
-.cardpopuleratas .linier {
+.wapper2 .bgt {
+    width: 100vw;
+    height: 500px;
+    background-color: #6c50d3;
     z-index: 1;
-    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+    top: 0
+}
+
+.wapper2 .bg {
+    width: 100vw;
+    height: 500px;
+    position: absolute;
+    top: 0
+}
+
+.wapper2 .dalamisi {
+    height: 500px;
+    width: 1200px;
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgb(118, 74, 241);
-    background: linear-gradient(0deg, rgba(118, 74, 241, 1) 0%, rgba(253, 187, 45, 0) 50%);
+    z-index: 111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 
-
-
-/* katakata */
-.katakata {
-    width: 600px;
-}
-
-.katakata .judul {
-    font-size: 50px;
-    font-weight: 900;
-    color: #E08D79;
-}
-
-.katakata .deskripsi {
-    font-size: 27px;
-    font-weight: 400;
+.wapper2 .dalamisi .judul {
     color: #3a4258;
+    font-size: 50px;
+    padding: 0 5px;
+    font-weight: 900;
+    text-align: center;
+    background-color: #FFA400;
+    font-family: var(--font);
 }
 
-.katakata button {
-    margin: 20px 0 0 0;
-    outline: none;
-    background-color: #3a4258;
+.wapper2 .dalamisi .deskripsi {
     color: #fff;
-    border: 0;
-    padding: 7px 25px;
-    border-radius: 15px;
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+    margin: 10px 0;
 }
 
-.katakata button:hover {
-    cursor: pointer;
-    background-color: #fff;
-    color: #6c50d3;
-    border: 1px solid;
-    transition: all 0.1s ease;
-}
-
-
-.katakata .f input {
+.wapper2 .f input {
     margin: 10px 0;
     outline: none;
-    background-color: #3a4258;
-    color: #fff;
+    background-color: #fff;
+    color: #3a4258;
     border: 0;
     padding: 20px 25px;
     font-size: 20px;
+    border-radius: 10px 0 0 10px;
 }
 
 
-.katakata .f input::placeholder {
-    color: #fff;
+.wapper2 .f input::placeholder {
+    color: #3a4258;
     font-size: 14px;
     opacity: 0.5;
 }
 
-.katakata .f button {
+.wapper2 .f button {
     margin: 10px 0;
     outline: none;
     background-color: #6c50d3;
@@ -134,15 +95,16 @@
     padding: 20px 25px;
     border-radius: 0;
     font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
 }
 
-.katakata .f button:hover {
+.wapper2 .f button:hover {
     cursor: pointer;
-    background-color: #fff;
-    color: #6c50d3;
-    border: 1px solid;
+    opacity: 0.8;
     transition: all 0.3s ease;
 }
+
+
 
 
 
@@ -158,94 +120,43 @@
         width: 100vw;
         flex-direction: column;
         align-items: center;
+        height: 100vh;
     }
 
 
-
-
-
-    /* CARD */
-
-
-
-    .luarcardpopuler {
+    .wapper2 .dalamisi {
+        height: 100vh;
         width: 95%;
-        height: auto;
-        align-items: flex-start;
-        justify-content: center;
     }
 
-    .luarcardpopuler .wapper {
-        display: flex;
 
+    .wapper2 .dalamisi .judul {
+        font-size: 25px;
+        padding: 0 5px;
     }
 
-    .cardpopuleratas {
-        margin: 10px;
-        width: 40%;
-        height: 150px;
-        position: relative;
+    .wapper2 .dalamisi .deskripsi {
+        font-size: 17px;
     }
 
-    .cardpopuleratas .gambar {
-        height: 150px;
-        width: 100%;
-    }
-
-    .cardpopuleratas .judul {
+    .wapper2 .f input {
+        padding: 20px 25px;
         font-size: 12px;
     }
 
 
-
-
-
-
-
-    /* katakata */
-    .katakata {
-        width: 95%;
-        margin-top: 20px;
-    }
-
-    .katakata .judul {
-        font-size: 40px;
-
-    }
-
-    .katakata .deskripsi {
-        font-size: 20px;
-        font-weight: 400;
-        color: #3a4258;
-    }
-
-    .katakata button {
-        margin: 10px 0;
-        padding: 7px 20px;
-        border-radius: 10px;
-        font-size: 12px;
-    }
-
-
-
-    .katakata .f input {
-        margin: 5px 0;
-        padding: 12px 15px;
-        font-size: 15px;
-    }
-
-
-    .katakata .f input::placeholder {
-        color: #fff;
+    .wapper2 .f input::placeholder {
         font-size: 14px;
-        opacity: 0.5;
     }
 
-    .katakata .f button {
-        margin: 5px 0;
-        padding: 12px 15px;
-        font-size: 15px;
+    .wapper2 .f button {
+        padding: 20px 25px;
+        font-size: 12px;
     }
+
+
+
+
 
 
 
