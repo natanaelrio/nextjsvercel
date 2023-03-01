@@ -54,10 +54,6 @@ export default function Home(props: BlogProps) {
 
 
 
-  console.log('ini',cari.length !== 0);
-  
-
-
   return (
     <>
       <Head>
@@ -97,7 +93,7 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
               <form className={stylesb.f} method='get' action={`/search/${cari}`}>
                 <div className={stylesb.pencarian}>
-                  <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { headSubmit(e.target.value) }} />
+                  <input placeholder='Cari..' type="search" value={cari} onChange={(e: any) => { headSubmit(e.target.value) }} />
                   <button type="submit" >Cari</button>
                 </div>
                 <ul>
@@ -106,8 +102,6 @@ export default function Home(props: BlogProps) {
                       <>
                         <li>
                           <Link key={i} href={dataku.slug} className={stylesb.link}>
-
-
                             <div className={stylesb.kiri}>{dataku.judul}</div>
                             <div className={stylesb.kanan}><Image className={stylesb.gambar}  src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
                           </Link>

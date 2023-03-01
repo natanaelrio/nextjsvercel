@@ -77,7 +77,9 @@ img {
   display: none !important;
 }
 
-
+.top{
+  top:80px!important;
+}
 
 .infinite-scroll-component  {
   display: flex!important;

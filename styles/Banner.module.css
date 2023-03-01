@@ -69,6 +69,10 @@
 }
 
 
+
+
+/* PENCARIAN */
+
 .wapper2 .f .pencarian {
     width: 500px;
 }
@@ -149,6 +153,7 @@
 .wapper ul li .link .kanan {
     display: flex;
     justify-content: flex-end;
+    width: 25%;
 }
 
 .wapper ul li .link .kanan .gambar {
@@ -172,23 +177,23 @@
         width: 100vw;
         flex-direction: column;
         align-items: center;
-        height: 70vh;
+        height: 50vh;
     }
 
 
     .wapper2 .bgt {
         width: 100vw;
-        height: 70vh;
+        height: 50vh;
     }
 
     .wapper2 .bg {
         width: 100vw;
-        height: 70vh;
+        height: 50vh;
     }
 
 
     .wapper2 .dalamisi {
-        height: 60vh;
+        height: 50vh;
         width: 95%;
     }
 
@@ -203,10 +208,12 @@
 
 
 
+    /* pencarian */
     .wapper2 .f .pencarian {
         width: 100%;
         display: flex;
         justify-content: center;
+        display: none;
     }
 
     .wapper2 .f input {
@@ -244,11 +251,11 @@
     }
 
 
-    .wapper ul li .link  {
+    .wapper ul li .link {
         width: 100%;
     }
-    
-    
+
+
 
 
 
