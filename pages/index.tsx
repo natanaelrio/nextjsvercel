@@ -4,7 +4,7 @@ import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { use, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
@@ -29,7 +29,7 @@ interface BlogProps {
 
 
 export default function Home(props: BlogProps) {
-  const { datablog, datablogdua } = props;
+  const { datablog } = props;
 
   const [posts, setPosts] = useState(datablog)
 
@@ -173,18 +173,15 @@ export default function Home(props: BlogProps) {
 
 export async function getServerSideProps() {
 
-  const [datablogRes, datablogduaRes] = await Promise.all([
-    fetch(`${process.env.API_ENDPOINT}?limit=8`),
-    fetch(`${process.env.API_ENDPOINT}?limit=4`),
+  const [datablogRes] = await Promise.all([
+    fetch(`${process.env.API_ENDPOINT}?limit=8`)
   ]);
-  const [datablog, datablogdua] = await Promise.all([
+  const [datablog] = await Promise.all([
     datablogRes.json(),
-    datablogduaRes.json()
   ]);
   return {
     props: {
-      datablog,
-      datablogdua
+      datablog
     }
   };
 
