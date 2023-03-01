@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 
 import styles from './Header.module.css'
 import Link from 'next/link'
