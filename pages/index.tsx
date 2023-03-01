@@ -4,7 +4,7 @@ import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
@@ -30,7 +30,6 @@ interface BlogProps {
 
 export default function Home(props: BlogProps) {
   const { datablog, datablogdua } = props;
-  const [cari, setCari] = useState("");
 
   const [posts, setPosts] = useState(datablog)
 
@@ -40,7 +39,23 @@ export default function Home(props: BlogProps) {
     setPosts(posts => [...posts, ...newPosts])
   }
 
-  console.info(posts)
+
+  const [cari, setCari] = useState(" ");
+  const [tampung, setTampung] = useState([])
+  const hilang = document.getElementById('cek')
+
+  const headSubmit = async (e) => {
+    setCari(e)
+    if (cari.length == false) {
+      hilang.style.display = 'block';
+      const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
+      const newCari = await res.json();
+      setTampung(newCari)
+    }
+     if (cari.length  == true)  {
+      hilang.style.display = 'none';
+    }
+  }
 
   return (
     <>
@@ -79,10 +94,24 @@ export default function Home(props: BlogProps) {
 
               <div className={stylesb.judul}>Bosan? Sini dong :)</div>
               <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
-              <form className={stylesb.f} method='get' action={`/search/${cari}`} >
-                <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { setCari(e.target.value) }} />
-                <button type="submit" >Cari</button>
+              <form className={stylesb.f} method='get' action={`/search/${cari}`}>
+                <div className={stylesb.pencarian}>
+                  <input placeholder='Cari..' type="text" value={cari} onChange={(e: any) => { headSubmit(e.target.value) }} />
+                  <button type="submit" >Cari</button>
+                </div>
+                <ul id='cek'>
+                  {tampung.map((dataku, i) => {
+                    return (
+                      <>
+                        <li>
+                          <Link key={i} href={dataku.slug} className={stylesb.link}>{dataku.judul}</Link></li>
+                      </>
+                    )
+                  })}
+                </ul>
+
               </form>
+
             </div>
 
           </div>

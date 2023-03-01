@@ -68,6 +68,11 @@
     margin: 10px 0;
 }
 
+
+.wapper2 .f .pencarian {
+    width: 500px;
+}
+
 .wapper2 .f input {
     margin: 10px 0;
     outline: none;
@@ -77,6 +82,7 @@
     padding: 20px 25px;
     font-size: 20px;
     border-radius: 10px 0 0 10px;
+    width: 70%;
 }
 
 
@@ -96,6 +102,7 @@
     border-radius: 0;
     font-size: 20px;
     border-radius: 0px 10px 10px 0px;
+    width: 20%;
 }
 
 .wapper2 .f button:hover {
@@ -104,6 +111,31 @@
     transition: all 0.3s ease;
 }
 
+
+
+/* LIST PENCARIAN */
+
+.wapper2 ul {
+    position: absolute;
+    color: #3a4258;
+    background-color: #fff;
+    list-style: none;;
+    width: 500px;
+}
+
+.wapper2 ul li {
+    border: 0.2px solid #3a4258;
+    padding: 5px;
+}
+
+.wapper ul li .link {
+    color:#3a4258
+}
+
+.wapper ul li .link:hover {
+    color:#3a4258;
+    text-decoration: underline;
+}
 
 
 
