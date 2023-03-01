@@ -124,11 +124,21 @@
     }
 
 
+    .wapper2 .bgt {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .wapper2 .bg {
+        width: 100vw;
+        height: 100vh;
+    }
+
+
     .wapper2 .dalamisi {
         height: 90vh;
         width: 95%;
     }
-
 
     .wapper2 .dalamisi .judul {
         font-size: 25px;
