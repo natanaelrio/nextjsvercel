@@ -147,6 +147,7 @@
         list-style: none;
         border-radius: 0 0 10px 10px;
         box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+        transition: all 0.3s ease;
     }
 
     .wappernav ul li {
@@ -155,7 +156,7 @@
 
 
 
-    .wappernav ul li .link  {
+    .wappernav ul li .link {
         width: 100%;
         display: flex;
         color: #3a4258;
@@ -221,7 +222,7 @@
         display: none;
     }
 
-    .navigasi .pilihan ul .satu:nth-child(2){
+    .navigasi .pilihan ul .satu:nth-child(2) {
         margin-left: 10px;
     }
 

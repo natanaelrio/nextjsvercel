@@ -7,20 +7,12 @@ import Dua from '../../Asset/Gambar/duaPw.svg'
 import { useState } from 'react'
 
 export default function Header () {
-  const wk = document.getElementById('hilangkan')
-  const wkwk = document.getElementById('bawahkan')
   const [milang, setMilang] = useState(false)
-
-  const headhilang = () => {
-    wk.classList.toggle('hilang')
-    wkwk.classList.toggle('top')
-    setMilang(true)
-  }
 
   const [cari, setCari] = useState(' ')
   const [tampung, setTampung] = useState([])
 
-  const headSubmit = async (e) => {
+  const headSubmitt = async (e) => {
     setCari(e)
     if (cari) {
       const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
@@ -28,7 +20,7 @@ export default function Header () {
       setTampung(newCari)
     }
   }
-  console.log(milang)
+
 
   return (
     <>
@@ -44,10 +36,10 @@ export default function Header () {
             </div>
           </div>
 
-          <div className={styles.wappernav} id='bawahkan'>
+          <div className={styles.wappernav}>
             <form className={styles.f} method='get' action={`/search/${cari}`}>
               <div className={styles.pencarian}>
-                <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }} />
+                <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmitt(e.target.value) }} />
                 <button type="submit" >Cari</button>
               </div>
               <ul>
@@ -75,15 +67,17 @@ export default function Header () {
               <div className={styles.burgerdalam}></div>
               <div className={styles.burgerdalam}></div>
               <div className={styles.burgerdalam}></div>
-              <button onClick={headhilang}></button>
+              <button onClick={() => setMilang(!milang)} ></button>
             </div>
-            <ul id='hilangkan'>
+
+            {milang && (
+            <ul>
               <li className={styles.satu}><Link href="/">Home</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/tentang-kami.php">Tentang</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/hubungi-kami.php">Kontak</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/kebijakan-privasi.php">Kebijakan Privasi</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/site-map.php">Sitemap</Link></li>
-            </ul>
+            </ul>)}
           </div>
 
         </div>
