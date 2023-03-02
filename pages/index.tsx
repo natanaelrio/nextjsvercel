@@ -78,7 +78,7 @@ export default function Home(props: BlogProps) {
 
       </Head>
       <body>
-        
+
       {cari.length !== 0 ? <Black /> : null}
         <div className={stylesb.wapper}>
 
@@ -100,7 +100,7 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
 
               <div className={stylesb.pencarian}>
-             
+
 
               <form className={stylesA.Pen} method='get' action={`/search/${cari}`}>
                 <div className={stylesA.pencarian} >
@@ -109,7 +109,7 @@ export default function Home(props: BlogProps) {
                 </div>
                 <ul>
                     {cari.length !== 0
-                      ? tampung.map((dataku, i) => {
+                      ? tampung.map((dataku: any, i) => {
                         return (
                             <>
                                 <li>
