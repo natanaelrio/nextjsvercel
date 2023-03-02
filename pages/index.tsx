@@ -11,7 +11,7 @@ import Bg from '../Asset/Gambar/1994.jpg'
 import Dua from '../Asset/Gambar/duaP.svg'
 import Dekor from '../Asset/Gambar/dekor.svg'
 import Black from '../components/Black/Black'
-import BlackHide from '../components/Black/Blackhide'
+
 
 interface Post {
   uid: number;
