@@ -71,6 +71,31 @@
 }
 
 
+   /* BURGER */
+
+   .navigasi .burger {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigasi .burger .burgerdalam {
+    margin-top: 2px;
+    width: 35px;
+    height: 8px;
+    background-color: #764AF1;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.navigasi .burger button {
+    position: absolute;
+    top: 12px;
+    width: 35px;
+    height: 30px;
+    opacity: 0;
+}
+
+
 @media (min-width: 320px) and (max-width: 480px) {
 
 
