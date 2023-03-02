@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;500;700;900&display=swap');
+
 :root {
   --color-primer: #6c50d3;
   --color-sekunder: #3a4258;
   --color-body: #f6f6f8;
   --color-putih: #fff;
-  --color-atas:#e5e9f2;
-  --font-family:'Montserrat', sans-serif!important;
+  --color-atas: #e5e9f2;
+  --font-family: 'Montserrat', sans-serif !important;
 }
 
 * {
@@ -15,7 +16,8 @@
 
 
 body {
-width:97vw;
+  width: 100vw;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
   border: 0;
@@ -49,7 +51,8 @@ width:97vw;
 
 
 .wk {
-  width: 100vw;;
+  width: 100vw;
+  ;
   background: var(--color-body)
 }
 
@@ -77,15 +80,15 @@ img {
   display: none !important;
 }
 
-.top{
-  top:80px!important;
+.top {
+  top: 80px !important;
 }
 
-.infinite-scroll-component  {
-  display: flex!important;
-  justify-content: center!important;
-  flex-direction: column!important;
-  align-items: center!important;
+.infinite-scroll-component {
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -95,7 +98,7 @@ img {
   }
 
   body {
-    width:100vw!important;
+    width: 100vw !important;
     overflow-x: hidden;
   }
 
