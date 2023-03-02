@@ -7,21 +7,6 @@ import Dua from '../../Asset/Gambar/duaPw.svg'
 import { useState } from 'react'
 
 export default function Header () {
-  const [milang, setMilang] = useState(false)
-
-  const [cari, setCari] = useState(' ')
-  const [tampung, setTampung] = useState([])
-
-  const headSubmitt = async (e) => {
-    setCari(e)
-    if (cari) {
-      const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
-      const newCari = await res.json()
-      setTampung(newCari)
-    }
-  }
-
-
   return (
     <>
       <div className={styles.navigasi}>
@@ -35,42 +20,7 @@ export default function Header () {
               </Link>
             </div>
           </div>
-
-          <div className={styles.wappernav}>
-            <form className={styles.f} method='get' action={`/search/${cari}`}>
-              <div className={styles.pencarian}>
-                <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmitt(e.target.value) }} />
-                <button type="submit" >Cari</button>
-              </div>
-              <ul>
-                {cari.length !== 0 ? tampung.map((dataku, i) => {
-                  return (
-                    <>
-                      <li>
-                        <Link key={i} href={dataku.slug} className={styles.link}>
-                          <div className={styles.kiri}>{dataku.judul}</div>
-                          <div className={styles.kanan}><Image className={styles.gambar} src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
-                        </Link>
-                      </li>
-                    </>
-                  )
-                })
-                  : null
-                }
-              </ul>
-            </form>
-          </div>
-
           <div className={styles.pilihan}>
-
-            <div className={styles.burger}>
-              <div className={styles.burgerdalam}></div>
-              <div className={styles.burgerdalam}></div>
-              <div className={styles.burgerdalam}></div>
-              <button onClick={() => setMilang(!milang)} ></button>
-            </div>
-
-            {milang && (
             <ul>
               <li className={styles.satu}><Link href="/">Home</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/tentang-kami.php">Tentang</Link></li>
