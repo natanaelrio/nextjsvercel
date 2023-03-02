@@ -6,6 +6,8 @@
     width: 102%;
 }
 
+
+
 .wapper2 {
     display: flex;
     justify-content: center;
@@ -15,6 +17,9 @@
     object-position: center;
     position: relative;
 }
+
+
+
 
 /* LOGO */
 .wapper2 .logo {

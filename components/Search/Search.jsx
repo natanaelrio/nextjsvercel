@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Search () {
+
+export default function Search (props) {
   const [cari, setCari] = useState(' ')
   const [tampung, setTampung] = useState([])
 
@@ -16,12 +17,14 @@ export default function Search () {
     }
   }
 
+  console.info(props)
+
   return (
         <>
 
             <form className={stylesA.Pen} method='get' action={`/search/${cari}`}>
                 <div className={stylesA.pencarian} >
-                    <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }} />
+                    <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }}/>
                     <button type="submit" >Cari</button>
                 </div>
                 <ul>
@@ -39,13 +42,9 @@ export default function Search () {
                         )
                       })
                       : null
-
                     }
                 </ul>
-
             </form>
-
-
         </>
-    )
+  )
 }

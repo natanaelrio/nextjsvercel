@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import stylesb from '@/styles/Banner.module.css'
+import stylesA from '@/styles/Pencarian.module.css'
 import Footer from '../components/Footer/Footer'
 import Link from "next/link";
 import React, { useState } from 'react'
@@ -9,8 +10,8 @@ import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
 import Dua from '../Asset/Gambar/duaP.svg'
 import Dekor from '../Asset/Gambar/dekor.svg'
-import Search from '../components/Search/Search'
-
+import Black from '../components/Black/Black'
+import BlackHide from '../components/Black/Blackhide'
 
 interface Post {
   uid: number;
@@ -77,7 +78,8 @@ export default function Home(props: BlogProps) {
 
       </Head>
       <body>
-
+        
+      {cari.length !== 0 ? <Black /> : null}
         <div className={stylesb.wapper}>
 
           <div className={stylesb.wapper2}>
@@ -98,7 +100,36 @@ export default function Home(props: BlogProps) {
               <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
 
               <div className={stylesb.pencarian}>
-                <Search />
+             
+
+              <form className={stylesA.Pen} method='get' action={`/search/${cari}`}>
+                <div className={stylesA.pencarian} >
+                    <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }}/>
+                    <button type="submit" >Cari</button>
+                </div>
+                <ul>
+                    {cari.length !== 0
+                      ? tampung.map((dataku, i) => {
+                        return (
+                            <>
+                                <li>
+                                    <Link key={i} href={dataku.slug} className={stylesA.link} >
+                                        <div className={stylesA.kiri}>{dataku.judul}</div>
+                                        <div className={stylesA.kanan}><Image className={stylesA.gambar} src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
+                                    </Link>
+                                </li>
+                            </>
+                        )
+                      })
+                      : null
+                    }
+                </ul>
+            </form>
+
+
+
+
+
               </div>
             </div>
           </div>
