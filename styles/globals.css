@@ -15,7 +15,7 @@
 
 
 body {
-width:100vw;
+width:97vw;
   margin: 0;
   padding: 0;
   border: 0;
@@ -95,7 +95,8 @@ img {
   }
 
   body {
-    width:100vw;
+    width:100vw!important;
+    overflow-x: hidden;
   }
 
 }
