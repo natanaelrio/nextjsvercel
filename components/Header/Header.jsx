@@ -7,13 +7,7 @@ import Dua from '../../Asset/Gambar/duaPw.svg'
 import { useState } from 'react'
 
 export default function Header () {
-
   const [milang, setMilang] = useState(false)
-
-  const headhilang = () => {
-
-    setMilang(true)
-  }
 
   const [cari, setCari] = useState(' ')
   const [tampung, setTampung] = useState([])
@@ -26,7 +20,7 @@ export default function Header () {
       setTampung(newCari)
     }
   }
-  console.log(milang)
+
 
   return (
     <>
@@ -73,15 +67,17 @@ export default function Header () {
               <div className={styles.burgerdalam}></div>
               <div className={styles.burgerdalam}></div>
               <div className={styles.burgerdalam}></div>
-              <button onClick={headhilang}></button>
+              <button onClick={() => setMilang(!milang)} ></button>
             </div>
-            <ul id='hilangkan'>
+
+            {milang && (
+            <ul>
               <li className={styles.satu}><Link href="/">Home</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/tentang-kami.php">Tentang</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/hubungi-kami.php">Kontak</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/kebijakan-privasi.php">Kebijakan Privasi</Link></li>
               <li className={styles.satu}><Link href="https://duateman.com/site-map.php">Sitemap</Link></li>
-            </ul>
+            </ul>)}
           </div>
 
         </div>
