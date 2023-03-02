@@ -2,11 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
-    margin-top: 30px;
     background-color: var(--color-atas);
+    width: 102%;
 }
-
 
 .wapper2 {
     display: flex;
@@ -18,6 +16,31 @@
     position: relative;
 }
 
+/* LOGO */
+.wapper2 .logo {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    padding: 20px 0;
+    z-index: 1000;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wapper2 .logo .logogambar {
+    height: 50px;
+    width: 50px;
+}
+
+.wapper2 .logo .tulisan h1 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    width: 20vw;
+}
 
 .wapper2 .bgt {
     width: 100vw;
@@ -38,7 +61,7 @@
 
 .wapper2 .dalamisi {
     height: 500px;
-    width: 1200px;
+    width: 800px;
     position: absolute;
     top: 0;
     z-index: 111;
@@ -46,7 +69,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 
@@ -62,114 +84,26 @@
 
 .wapper2 .dalamisi .deskripsi {
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 300;
     text-align: center;
-    margin: 10px 0;
+    margin: 5px 0;
 }
-
 
 
 
 /* PENCARIAN */
 
-.wapper2 .f .pencarian {
-    width: 500px;
+.wapper2 .pencarian {
+    width: 100%;
+
 }
-
-.wapper2 .f input {
-    margin: 10px 0;
-    outline: none;
-    background-color: #fff;
-    color: #3a4258;
-    border: 0;
-    padding: 20px 25px;
-    font-size: 20px;
-    border-radius: 10px 0 0 10px;
-    width: 70%;
-    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
-}
-
-
-.wapper2 .f input::placeholder {
-    color: #3a4258;
-    font-size: 14px;
-    opacity: 0.5;
-}
-
-.wapper2 .f button {
-    margin: 10px 0;
-    outline: none;
-    background-color: #6c50d3;
-    color: #fff;
-    border: 0;
-    padding: 20px 25px;
-    border-radius: 0;
-    font-size: 20px;
-    border-radius: 0px 10px 10px 0px;
-    width: 20%;
-}
-
-.wapper2 .f button:hover {
-    cursor: pointer;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-}
-
-
-
-/* LIST PENCARIAN */
-
-.wapper2 ul {
-    position: absolute;
-    color: #3a4258;
-    background-color: #fff;
-    list-style: none;
-    width: 500px;
-    border-radius: 10px 10px;
-    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
-}
-
-.wapper2 ul li {
-    padding: 5px 10px;
-}
-
-.wapper ul li .link {
-    color: #3a4258;
-    display: flex;
-    font-size: 17px;
-    font-weight: 700;
-}
-
-.wapper ul li .link:hover {
-    color: #3a4258;
-    text-decoration: underline;
-}
-
-.wapper ul li .link .kiri {
-    width: 90%;
-}
-
-.wapper ul li .link .kanan {
-    display: flex;
-    justify-content: flex-end;
-    width: 25%;
-}
-
-.wapper ul li .link .kanan .gambar {
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
-}
-
 
 
 
 @media (min-width: 320px) and (max-width: 480px) {
 
     .wapper {
-        margin: 10px 0;
-        margin-top: 50px;
         padding: 0;
     }
 
@@ -177,23 +111,23 @@
         width: 100vw;
         flex-direction: column;
         align-items: center;
-        height: 50vh;
+        height: 350px;
     }
 
 
     .wapper2 .bgt {
         width: 100vw;
-        height: 50vh;
+        height: 350px;
     }
 
     .wapper2 .bg {
         width: 100vw;
-        height: 50vh;
+        height: 350px;
     }
 
 
     .wapper2 .dalamisi {
-        height: 50vh;
+        height: 350px;
         width: 95%;
     }
 
@@ -209,59 +143,37 @@
 
 
     /* pencarian */
-    .wapper2 .f .pencarian {
+    .wapper2 .pencarian {
         width: 100%;
+    }
+
+
+    /* LOGO */
+    .wapper2 .logo {
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px 0;
+        z-index: 1000;
+        width: 95%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .wapper2 .logo .logogambar {
+        height: 50px;
+        width: 50px;
+    }
+
+    .wapper2 .logo .tulisan {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        width: 45vw;
         display: none;
     }
-
-    .wapper2 .f input {
-        margin: 10px 0;
-        outline: none;
-        background-color: #fff;
-        color: #3a4258;
-        border: 0;
-        padding: 15px 15px;
-        font-size: 20px;
-        border-radius: 10px 0 0 10px;
-        width: 100%;
-    }
-
-
-    .wapper2 .f button {
-        margin: 10px 0;
-        padding: 20px 25px;
-        border-radius: 0;
-        font-size: 20px;
-        border-radius: 0px 10px 10px 0px;
-        width: 30%;
-    }
-
-
-
-    /* LIST PENCARIAN */
-
-    .wapper2 ul {
-        width: 100%;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-
-    .wapper ul li .link {
-        width: 100%;
-    }
-
-
-
-
-
-
-
-
 
 
 }

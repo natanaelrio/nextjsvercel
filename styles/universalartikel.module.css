@@ -33,6 +33,47 @@
     padding: 70px 70px;
 }
 
+
+.article .navartikel {
+    display: flex;
+    background-color: #ffc212;
+    padding: 5px;
+    color: #4C5B5C;
+    font-weight: 900;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.article .navartikel .l {
+    color: #4C5B5C;
+    background-color: #6c50d3;
+    color: #fff;
+    padding: 5px;
+}
+
+.article .navartikel .l:hover {
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.article .navartikel .cl {
+    margin: 0 10px;
+    width: 20px;
+    opacity: 0.5;
+}
+
+.article .navartikel .c {
+    width: 20px;
+    opacity: 0.5;
+}
+
+.article .navartikel .r {
+    display: flex;
+}
+
 .article .kiri .judul {
     display: flex;
 }
@@ -560,6 +601,12 @@
     .article .kiri {
         grid-area: 1/1/2/24;
         padding: 20px 20px;
+        margin-top: 10px;
+    }
+
+    .article .navartikel {
+        font-size: 12px;
+        overflow-x: scroll;
     }
 
     .article .kiri .judul h1 {

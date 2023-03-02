@@ -91,11 +91,12 @@
 .judullistartikel{
   text-align: center;
   font-size: 40px;
-  margin: 10px 0;
+  margin: 20px 0;
   width: fit-content;
   padding-bottom:10px ;
   border-bottom: #6c50d3 solid 5px;
   color: #3a4258;
+  font-weight: 700;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

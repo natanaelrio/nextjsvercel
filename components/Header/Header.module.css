@@ -1,6 +1,6 @@
 .navigasi {
     padding: 10px 0;
-    width: 100%;
+    width: 104%;
     height: 35px;
     background-color: var(--color-atas);
     position: fixed;
@@ -16,7 +16,7 @@
 }
 
 .navigasi .logoluar {
-    width: 550px;
+    width: auto;
 }
 
 .navigasi .logo {
@@ -25,7 +25,7 @@
 }
 
 .navigasi .pilihan {
-    width: 600px;
+    width: auto;
     height: 35px;
     display: flex;
     justify-content: flex-end;
@@ -66,14 +66,156 @@
 }
 
 
-.wappernav {
-    display: none;
+/* PENCARIAN */
+
+.wappernav .f  {
+    width: 120%;
+}
+
+.wappernav .f .pencarian {
+    width: 120%;
+    display: flex;
+    justify-content: center;
+}
+
+.wappernav .f input {
+    margin: 0px 0;
+    outline: none;
+    background-color: #fff;
+    color: #3a4258;
+    border: 0;
+    padding: 7px 7px;
+    font-size: 14px;
+    border-radius: 10px 0 0 10px;
+    width: 70%;
 }
 
 
-   /* BURGER */
+.wappernav .f input::placeholder {
+    color: #3a4258;
+    font-size: 14px;
+    opacity: 0.5;
+}
 
-   .navigasi .burger {
+.wappernav .f button {
+    margin: 0px 0;
+    padding: 7px 7px;
+    border-radius: 0;
+    font-size: 15px;
+    border-radius: 0px 10px 10px 0px;
+    width: 20%;
+    outline: none;
+    background-color: #6c50d3;
+    color: #fff;
+    border: 0;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.wappernav .f button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+
+
+/* LIST PENCARIAN */
+
+.wappernav ul {
+    max-height: 250px;
+    overflow-y: scroll;
+    width: 300px;
+    font-size: 14px;
+    position: absolute;
+    top: 55px;
+    color: #3a4258;
+    background-color: #fff;
+    list-style: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+    transition: all 0.3s ease;
+}
+
+.wappernav ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.wappernav ul::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.wappernav ul::-webkit-scrollbar-thumb {
+    border-radius: 0 0 10px 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #6c50d3;
+}
+
+.wappernav ul li {
+    padding: 5px 10px;
+}
+
+
+
+.wappernav ul li .link {
+    width: 100%;
+    display: flex;
+    color: #3a4258;
+}
+
+.wappernav ul li .link:hover {
+    color: #3a4258;
+    text-decoration: underline;
+}
+
+.wappernav ul li .link .kiri {
+    width: 80%;
+}
+
+.wappernav ul li .link .kanan {
+    display: flex;
+    justify-content: flex-end;
+    width: 25%;
+}
+
+.wappernav ul li .link .kanan .gambar {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+
+/* PILIHAN BAWAH */
+.navigasi .pilihan ul {
+    position: absolute;
+    width: 350px;
+    right: 50px;
+    bottom: -220px;
+    background-color: #764AF1;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 10px 10px;
+}
+
+.navigasi .pilihan ul .satu {
+    padding: 10px 0;
+}
+
+.navigasi .pilihan ul .satu a:-webkit-any-link {
+    color: var(--color-putih);
+}
+
+.navigasi .pilihan ul .satu:nth-child(2) {
+    margin-left: 10px;
+}
+
+
+/* BURGER */
+.navigasi .burger {
     display: flex;
     flex-direction: column;
 }
@@ -93,76 +235,35 @@
     width: 35px;
     height: 30px;
     opacity: 0;
+    cursor: pointer;
 }
 
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-
     .navigasi .navwarp {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
     }
 
 
-
     /* PENCARIAN */
 
-    .wappernav {
-        display: block;
+    .wappernav .f {
+        width: 100%;
     }
 
     .wappernav .f .pencarian {
-        width: 95%;
-        display: flex;
-        justify-content: center;
+        width: 100%;
     }
-
-    .wappernav .f input {
-        margin: 0px 0;
-        outline: none;
-        background-color: #fff;
-        color: #3a4258;
-        border: 0;
-        padding: 7px 7px;
-        font-size: 20px;
-        border-radius: 10px 0 0 10px;
-        width: 70%;
-    }
-
-
-    .wappernav .f input::placeholder {
-        color: #3a4258;
-        font-size: 14px;
-        opacity: 0.5;
-    }
-
-    .wappernav .f button {
-        margin: 0px 0;
-        padding: 7px 7px;
-        border-radius: 0;
-        font-size: 15px;
-        border-radius: 0px 10px 10px 0px;
-        width: 20%;
-        outline: none;
-        background-color: #6c50d3;
-        color: #fff;
-        border: 0;
-        border-radius: 0px 10px 10px 0px;
-    }
-
-    .wappernav .f button:hover {
-        cursor: pointer;
-        opacity: 0.8;
-        transition: all 0.3s ease;
-    }
-
 
 
     /* LIST PENCARIAN */
-
     .wappernav ul {
+        z-index: 1000;
+        max-height: 250px;
+        overflow-y: scroll;
         width: 75%;
         font-size: 14px;
         position: absolute;
@@ -175,11 +276,10 @@
         transition: all 0.3s ease;
     }
 
+
     .wappernav ul li {
         padding: 5px 10px;
     }
-
-
 
     .wappernav ul li .link {
         width: 100%;
@@ -224,56 +324,33 @@
 
 
     /* PILIHAN BAWAH */
+
+
     .navigasi .pilihan ul {
-        position: absolute;
         width: 100%;
         overflow: scroll;
         white-space: nowrap;
         bottom: -38px;
-        background-color: #764AF1;
-        padding: 10px;
-        box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+        right: 0;
+        flex-direction: row;
+
     }
 
-
-
+    .navigasi .pilihan ul .satu {
+        padding: 0;
+    }
 
     .navigasi .pilihan ul .satu a:-webkit-any-link {
         color: var(--color-putih);
     }
-
 
     .navigasi .pilihan ul .satu:nth-child(1) a:-webkit-any-link {
         display: none;
     }
 
     .navigasi .pilihan ul .satu:nth-child(2) {
-        margin-left: 10px;
+        margin-left: 30px;
     }
 
-
-    /* BURGER */
-
-    .navigasi .burger {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .navigasi .burger .burgerdalam {
-        margin-top: 2px;
-        width: 35px;
-        height: 8px;
-        background-color: #764AF1;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
-
-    .navigasi .burger button {
-        position: absolute;
-        top: 12px;
-        width: 35px;
-        height: 30px;
-        opacity: 0;
-    }
 
 }

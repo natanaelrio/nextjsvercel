@@ -2,12 +2,14 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import stylesb from '@/styles/Banner.module.css'
 import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
 import Link from "next/link";
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
+import Dua from '../Asset/Gambar/duaP.svg'
+import Search from '../components/Search/Search'
+
 
 interface Post {
   uid: number;
@@ -75,48 +77,29 @@ export default function Home(props: BlogProps) {
       </Head>
       <body>
 
-        <Header />
-
-
-
-
         <div className={stylesb.wapper}>
 
-
-
           <div className={stylesb.wapper2}>
+            <div className={stylesb.logo}>
+              <Image className={stylesb.logogambar} src={Dua} width={50} height={50} alt="duateman.com">
+              </Image>
+              <div className={stylesb.tulisan}>
+                <h1>
+                  DUATEMAN.COM
+                </h1>
+              </div>
+            </div>
             <div className={stylesb.bgt}></div>
             <div className={stylesb.bg}><Image src={Bg} alt="background" /></div>
             <div className={stylesb.dalamisi}>
 
               <div className={stylesb.judul}>Bosan? Sini dong :)</div>
               <div className={stylesb.deskripsi}>baca artikel Anime dan Manga yang menghibur harimu</div>
-              <form className={stylesb.f} method='get' action={`/search/${cari}`}>
-                <div className={stylesb.pencarian}>
-                  <input placeholder='Cari..' type="search" value={cari} onChange={(e: any) => { headSubmit(e.target.value) }} />
-                  <button type="submit" >Cari</button>
-                </div>
-                <ul>
-                  {cari.length !== 0 ?tampung.map((dataku:any, i) => {
-                    return (
-                      <>
-                        <li>
-                          <Link key={i} href={dataku.slug} className={stylesb.link}>
-                            <div className={stylesb.kiri}>{dataku.judul}</div>
-                            <div className={stylesb.kanan}><Image className={stylesb.gambar}  src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
-                          </Link>
-                        </li>
-                      </>
-                    )
-                  }): null
-                  
-                  }
-                </ul>
 
-              </form>
-
+              <div className={stylesb.pencarian}>
+                <Search />
+              </div>
             </div>
-
           </div>
         </div>
 
@@ -136,7 +119,6 @@ export default function Home(props: BlogProps) {
               }
             >
               <div className={styles.luarcardwarp}>
-
 
                 {posts.map((dataku, i) => {
 
@@ -172,7 +154,6 @@ export default function Home(props: BlogProps) {
 
 
 export async function getServerSideProps() {
-
   const [datablogRes] = await Promise.all([
     fetch(`${process.env.API_ENDPOINT}?limit=8`)
   ]);

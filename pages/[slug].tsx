@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image"
 
@@ -12,6 +12,9 @@ import Fb from "../Asset/Gambar/FBshare.svg";
 import Tw from "../Asset/Gambar/TWshare.svg";
 import Wa from "../Asset/Gambar/WAshare.svg";
 import Tl from "../Asset/Gambar/TLshare.svg";
+import Arrow from "../Asset/Gambar/arrow.svg";
+import Home from "../Asset/Gambar/home.svg";
+
 
 interface Post {
     uid: number;
@@ -34,10 +37,14 @@ interface BlogProps {
 }
 
 
+
+
 export default function DetailBlog(props: BlogProps) {
     const { datablog, datablogdua } = props;
     const router = useRouter();
     const { slug } = router.query;
+
+
     return (
         <>
 
@@ -86,14 +93,22 @@ export default function DetailBlog(props: BlogProps) {
                                         <div className={stylesU.isiartikel}>
 
                                             <div className={stylesU.article}>
-
                                                 <div className={stylesU.kiri}>
+
+                                                    <div className={stylesU.navartikel}>
+                                                        <Link className={stylesU.l} href="/" >Home</Link>
+                                                        <div className={stylesU.cl}> <Image className={stylesU.c} src={Arrow} alt="arrow duateman" width={50} height={50} /> </div>
+                                                        <div className={stylesU.r}>
+                                                            {dataku.judul}
+                                                        </div>
+                                                    </div>
+
                                                     <div className={stylesU.judul}><h1>{dataku.judul}</h1></div>
                                                     <div className={stylesU.tanggal}>Release : {dataku.tanggalartikel}</div>
                                                     <div className={stylesU.gambartengah}>
                                                         <div className={stylesU.tumb}>
                                                             <div className={stylesU.gambar}>
-                                                                <Image src={dataku.urlgambar} alt={dataku.judul} width={500} height={500}/>
+                                                                <Image src={dataku.urlgambar} alt={dataku.judul} width={500} height={500} />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -169,7 +184,7 @@ export default function DetailBlog(props: BlogProps) {
                                                                                 <div className={stylesU.deskripsi}>{dataku.deskripsi}</div>
                                                                             </div>
                                                                             <div className={stylesU.sebelahkanan}>
-                                                                                <Image src={dataku.urlgambar} width={500} height={500} alt={dataku.judul}/>
+                                                                                <Image src={dataku.urlgambar} width={500} height={500} alt={dataku.judul} />
                                                                             </div>
                                                                         </div>
                                                                     </Link>

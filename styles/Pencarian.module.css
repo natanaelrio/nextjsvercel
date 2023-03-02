@@ -1,0 +1,163 @@
+.Pen {
+    width: 100%;
+}
+
+.Pen .pencarian {
+    width: 100%;
+}
+
+.Pen .pencarian input {
+    width: 80%;
+    margin: 10px 0;
+    outline: none;
+    background-color: #fff;
+    color: #3a4258;
+    border: 0;
+    padding: 20px 25px;
+    font-size: 20px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+}
+
+.Pen .pencarian input::placeholder {
+    color: #3a4258;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.Pen .pencarian button {
+    width: 20%;
+    margin: 10px 0;
+    outline: none;
+    background-color: #6c50d3;
+    color: #fff;
+    border: 0;
+    padding: 20px 25px;
+    border-radius: 0;
+    font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
+.Pen .pencarian button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+
+/* List PENCARIAN */
+
+.Pen ul {
+    max-height: 250px;
+    overflow-y: scroll;
+    position: absolute;
+    color: #3a4258;
+    background-color: #fff;
+    list-style: none;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px 0px, rgb(0 0 0 / 19%) 0px 6px 20px 0px;
+}
+
+.Pen ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.Pen ul::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.Pen ul::-webkit-scrollbar-thumb {
+    border-radius: 0 0 10px 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #6c50d3;
+}
+
+.Pen ul li {
+    padding: 5px 10px;
+}
+
+
+.Pen ul li .link {
+    color: #3a4258;
+    display: flex;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.Pen ul li .link:hover {
+    color: #3a4258;
+    text-decoration: underline;
+}
+
+.Pen ul li .link .kiri {
+    width: 90%;
+}
+
+.Pen ul li .link .kanan {
+    display: flex;
+    justify-content: flex-end;
+    width: 25%;
+}
+
+.Pen ul li .link .kanan .gambar {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    /* pencarian */
+    .Pen .pencarian {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Pen .pencarian input {
+        margin: 10px 0;
+        outline: none;
+        background-color: #fff;
+        color: #3a4258;
+        border: 0;
+        padding: 15px 15px;
+        font-size: 20px;
+        border-radius: 10px 0 0 10px;
+        width: 100%;
+    }
+
+
+    .Pen .pencarian button {
+        margin: 10px 0;
+        padding: 20px 25px;
+        border-radius: 0;
+        font-size: 20px;
+        border-radius: 0px 10px 10px 0px;
+        width: 30%;
+    }
+
+
+
+    /* LIST PENCARIAN */
+
+    .Pen ul {
+        width: 100%;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+
+    .Pen ul li .link {
+        width: 100%;
+    }
+
+}
