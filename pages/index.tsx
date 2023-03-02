@@ -8,6 +8,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Image from 'next/image'
 import Bg from '../Asset/Gambar/1994.jpg'
 import Dua from '../Asset/Gambar/duaP.svg'
+import Dekor from '../Asset/Gambar/dekor.svg'
 import Search from '../components/Search/Search'
 
 
@@ -103,7 +104,9 @@ export default function Home(props: BlogProps) {
           </div>
         </div>
 
-        <div className={styles.tai} id="artikel" >
+
+        <Image src={Dekor} alt="dekor duateman" width={50} height={50}></Image>
+         <div className={styles.tai} id="artikel" >
 
           <div className={styles.judullistartikelluar} >
             <div className={styles.judullistartikel}>Daftar Artikel</div>
