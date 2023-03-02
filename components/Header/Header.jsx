@@ -7,20 +7,18 @@ import Dua from '../../Asset/Gambar/duaPw.svg'
 import { useState } from 'react'
 
 export default function Header () {
-  const wk = document.getElementById('hilangkan')
-  const wkwk = document.getElementById('bawahkan')
+
   const [milang, setMilang] = useState(false)
 
   const headhilang = () => {
-    wk.classList.toggle('hilang')
-    wkwk.classList.toggle('top')
+
     setMilang(true)
   }
 
   const [cari, setCari] = useState(' ')
   const [tampung, setTampung] = useState([])
 
-  const headSubmit = async (e) => {
+  const headSubmitt = async (e) => {
     setCari(e)
     if (cari) {
       const res = await fetch(`${process.env.API_ENDPOINT}?limit=4&cari=${cari}`)
@@ -44,10 +42,10 @@ export default function Header () {
             </div>
           </div>
 
-          <div className={styles.wappernav} id='bawahkan'>
+          <div className={styles.wappernav}>
             <form className={styles.f} method='get' action={`/search/${cari}`}>
               <div className={styles.pencarian}>
-                <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }} />
+                <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmitt(e.target.value) }} />
                 <button type="submit" >Cari</button>
               </div>
               <ul>
