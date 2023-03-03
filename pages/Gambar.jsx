@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import styles from '@/styles/Gambar.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Gambar(props) {
   // eslint-disable-next-line react/prop-types
@@ -39,8 +40,10 @@ export default function Gambar(props) {
                   return <>
                     <div className={styles.li1} key={i}>
                       <div className={styles.dalamgambar}>
-                        <Image src={data.src.large} alt={data.alt} width={500} height={500} style={{borderRadius: '10px'}}></Image>
-                        <div className={styles.photographer}> <p>{data.photographer}</p> </div>
+                        <Image src={data.src.large} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
+                        <Link href={data.photographer_url}>
+                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
+                        </Link>
                       </div>
                     </div>
                   </>
@@ -52,7 +55,10 @@ export default function Gambar(props) {
                   return <>
                     <div className={styles.li2} key={i}>
                       <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{borderRadius: '10px'}}></Image>
+                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
+                        <Link href={data.photographer_url}>
+                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
+                        </Link>
                       </div>
                     </div>
                   </>
@@ -66,7 +72,10 @@ export default function Gambar(props) {
                   return <>
                     <div className={styles.li3} key={i}>
                       <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{borderRadius: '10px'}}></Image>
+                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
+                        <Link href={data.photographer_url}>
+                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
+                        </Link>
                       </div>
                     </div>
                   </>
@@ -77,14 +86,16 @@ export default function Gambar(props) {
                   return <>
                     <div className={styles.li4} key={i}>
                       <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{borderRadius: '10px'}}></Image>
+                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
+                        <Link href={data.photographer_url}>
+                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
+                        </Link>
                       </div>
                     </div>
                   </>
                 })}
               </div>
             </div>
-
 
           </div>
         </div>
@@ -96,22 +107,22 @@ export default function Gambar(props) {
 export async function getServerSideProps() {
   const [resGambar1, resGambar2, resGambar3, resGambar4] = await Promise.all([
 
-    fetch('https://api.pexels.com/v1/curated?page=1&per_page=10', {
+    fetch('https://api.pexels.com/v1/curated?page=1&per_page=70', {
       headers: {
         Authorization: process.env.MY_SECRET_VARIABLE
       }
     }),
-    fetch('https://api.pexels.com/v1/curated?page=2&per_page=10', {
+    fetch('https://api.pexels.com/v1/curated?page=2&per_page=70', {
       headers: {
         Authorization: process.env.MY_SECRET_VARIABLE
       }
     }),
-    fetch('https://api.pexels.com/v1/curated?page=3&per_page=10', {
+    fetch('https://api.pexels.com/v1/curated?page=3&per_page=70', {
       headers: {
         Authorization: process.env.MY_SECRET_VARIABLE
       }
     }),
-    fetch('https://api.pexels.com/v1/curated?page=4&per_page=10', {
+    fetch('https://api.pexels.com/v1/curated?page=4&per_page=70', {
       headers: {
         Authorization: process.env.MY_SECRET_VARIABLE
       }

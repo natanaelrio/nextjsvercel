@@ -63,8 +63,21 @@
     display: flex;
 }
 
-.gambar .wapper .ul .li .dalamgambar {
+.gambar .wapper .ul  .dalamgambar {
     position: relative;
+    width: 100%;
+}
+
+
+.gambar  .ul  .dalamgambar .ph  {
+    position: absolute !important;
+    color: var(--color-putih);
+    font-size: 17px;
+    font-weight: 500;
+    z-index: 10;
+    bottom: 15%;
+    padding:5px 10px;
+    border-radius: 0 5px 5px 0;
 }
 
 
@@ -76,66 +89,75 @@
     vertical-align: middle;
 }
 
-
-.gambar .wapper .ul .li .dalamgambar .photographer {
-    position: absolute!important;
-    top:0;
-    background-color: brown;
-    z-index: 1000;
-    color: red;
-}
-
-
 @media (min-width: 320px) and (max-width: 480px) {
 
     .gambar .des {
         font-size: 40px;
     }
+
     .gambar .wapper .ul .li .dalamgambar {
         position: relative;
-        min-width: 100%;
-        max-width: 100%;
-        width: 100%;
+        min-width: 95%;
+        max-width: 95%;
+        width: 95%;
     }
-    
+
+
+    .gambar .wapper .gambar .wapperdalam {
+        min-width: 50%;
+        max-width: 50%;
+        height: fit-content;
+    }
+
 
     .gambar .wapper {
         min-width: 100%;
         width: 100%;
     }
-    
+
 
     .gambar .wapper .ul {
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
     }
 
     .gambar .wapper .ul .satu {
-        min-width: 100%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 49%;
+        width: 49%;
+        margin-right: 1%
     }
 
     .gambar .wapper .ul .dua {
-        min-width: 100%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-width: 49%;
+        width: 49%;
+        margin-left: 1%
     }
 
     .gambar .wapper .ul .li1 {
-        min-width: 90%;
-    }
-    
-    .gambar .wapper .ul .li2 {
-        min-width: 90%;
-    }
-    
-    .gambar .wapper .ul .li3 {
-        min-width: 90%;
-    }
-    
-    .gambar .wapper .ul .li4 {
-        min-width: 90%;
+        margin: 10px 10px 0 10px;
     }
 
+    .gambar .wapper .ul .li2 {
+        margin: 10px;
+    }
+
+    .gambar .wapper .ul .li3 {
+        margin: 10px 10px 0 0;
+    }
+
+    .gambar .wapper .ul .li4 {
+        margin: 10px 10px 10px 0;
+    }
+
+    .gambar  .ul  .dalamgambar .ph  {
+        font-size: 8px;
+        padding:3px 7px;
+    }
 
 }
