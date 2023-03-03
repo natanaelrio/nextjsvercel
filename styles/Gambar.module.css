@@ -40,21 +40,25 @@
 }
 
 .gambar .wapper .ul .li1 {
+    min-width: 95%;
     margin: 10px 0 10px 10px;
     display: flex;
 }
 
 .gambar .wapper .ul .li2 {
+    min-width: 95%;
     margin: 10px;
     display: flex;
 }
 
 .gambar .wapper .ul .li3 {
+    min-width: 95%;
     margin: 10px 0;
     display: flex;
 }
 
 .gambar .wapper .ul .li4 {
+    min-width: 95%;
     margin: 10px;
     display: flex;
 }
@@ -87,21 +91,51 @@
     .gambar .des {
         font-size: 40px;
     }
-
-    .gambar .wapper {
+    .gambar .wapper .ul .li .dalamgambar {
+        position: relative;
+        min-width: 100%;
+        max-width: 100%;
         width: 100%;
     }
+    
+
+    .gambar .wapper {
+        min-width: 100%;
+        width: 100%;
+    }
+    
 
     .gambar .wapper .ul {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .gambar .wapper .ul .satu {
+        min-width: 100%;
         width: 100%;
     }
 
     .gambar .wapper .ul .dua {
+        min-width: 100%;
         width: 100%;
     }
+
+    .gambar .wapper .ul .li1 {
+        min-width: 90%;
+    }
+    
+    .gambar .wapper .ul .li2 {
+        min-width: 90%;
+    }
+    
+    .gambar .wapper .ul .li3 {
+        min-width: 90%;
+    }
+    
+    .gambar .wapper .ul .li4 {
+        min-width: 90%;
+    }
+
 
 }
