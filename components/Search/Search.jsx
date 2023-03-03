@@ -16,7 +16,7 @@ export default function Search (props) {
     }
   }
 
-  console.info(props)
+  console.info('halamanpencarian', props)
 
   return (
         <>

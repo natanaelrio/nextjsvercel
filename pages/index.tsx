@@ -12,7 +12,6 @@ import Dua from '../Asset/Gambar/duaP.svg'
 import Dekor from '../Asset/Gambar/dekor.svg'
 import Black from '../components/Black/Black'
 
-
 interface Post {
   uid: number;
   slug: string;
@@ -79,7 +78,7 @@ export default function Home(props: BlogProps) {
       </Head>
       <body>
 
-      {cari.length !== 0 ? <Black /> : null}
+        {cari.length !== 0 ? <Black /> : null}
         <div className={stylesb.wapper}>
 
           <div className={stylesb.wapper2}>
@@ -127,9 +126,6 @@ export default function Home(props: BlogProps) {
             </form>
 
 
-
-
-
               </div>
             </div>
           </div>
@@ -137,7 +133,7 @@ export default function Home(props: BlogProps) {
 
 
         <Image src={Dekor} alt="dekor duateman" width={50} height={50}></Image>
-         <div className={styles.tai} id="artikel" >
+        <div className={styles.tai} id="artikel" >
 
           <div className={styles.judullistartikelluar} >
             <div className={styles.judullistartikel}>Daftar Artikel</div>
