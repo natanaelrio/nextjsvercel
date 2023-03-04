@@ -18,65 +18,37 @@
 
 .gambar .wapper .ul {
     display: flex;
-    flex-direction: row;
-}
-
-.gambar .wapper .ul .satu {
-    display: flex;
-    width: 50%;
-}
-
-
-.gambar .wapper .ul .dua {
-    display: flex;
-    width: 50%;
-}
-
-
-.gambar .wapper .gambar .wapperdalam {
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
-.gambar .wapper .ul .li1 {
-    min-width: 95%;
-    margin: 10px 0 10px 10px;
-    display: flex;
-}
 
-.gambar .wapper .ul .li2 {
-    min-width: 95%;
+.gambar .wapper .ul .li1:nth-child(even) {
+    width: 230px;
     margin: 10px;
     display: flex;
 }
 
-.gambar .wapper .ul .li3 {
-    min-width: 95%;
-    margin: 10px 0;
-    display: flex;
-}
-
-.gambar .wapper .ul .li4 {
-    min-width: 95%;
+.gambar .wapper .ul .li1:nth-child(odd) {
+    width: 230px;
+    min-height: 100%!important;
+    max-height: 100%!important;
     margin: 10px;
     display: flex;
 }
 
-.gambar .wapper .ul  .dalamgambar {
+.gambar .wapper .ul .dalamgambar {
     position: relative;
-    width: 100%;
 }
 
 
-.gambar  .ul  .dalamgambar .ph  {
+.gambar .ul .dalamgambar .ph {
     position: absolute !important;
     color: var(--color-putih);
     font-size: 17px;
     font-weight: 500;
     z-index: 10;
     bottom: 15%;
-    padding:5px 10px;
+    padding: 5px 10px;
     border-radius: 0 5px 5px 0;
 }
 
@@ -85,7 +57,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-top: 8px;
     vertical-align: middle;
 }
 
@@ -93,20 +64,6 @@
 
     .gambar .des {
         font-size: 40px;
-    }
-
-    .gambar .wapper .ul .li .dalamgambar {
-        position: relative;
-        min-width: 95%;
-        max-width: 95%;
-        width: 95%;
-    }
-
-
-    .gambar .wapper .gambar .wapperdalam {
-        min-width: 50%;
-        max-width: 50%;
-        height: fit-content;
     }
 
 
@@ -117,47 +74,27 @@
 
 
     .gambar .wapper .ul {
-        flex-direction: row;
+        display: flex;
         justify-content: center;
     }
 
-    .gambar .wapper .ul .satu {
+    .gambar .wapper .ul .li1:nth-child(even) {
+        width: 47%;
+        margin: 5px;
         display: flex;
-        flex-direction: column;
-        min-width: 49%;
-        width: 49%;
-        margin-right: 1%
     }
 
-    .gambar .wapper .ul .dua {
+    .gambar .wapper .ul .li1:nth-child(odd) {
+        width: 47%!important;
+        min-height: 100%!important;
+        max-height: 100%!important;
+        margin: 5px;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        min-width: 49%;
-        width: 49%;
-        margin-left: 1%
     }
 
-    .gambar .wapper .ul .li1 {
-        margin: 10px 10px 0 10px;
-    }
 
-    .gambar .wapper .ul .li2 {
-        margin: 10px;
-    }
-
-    .gambar .wapper .ul .li3 {
-        margin: 10px 10px 0 0;
-    }
-
-    .gambar .wapper .ul .li4 {
-        margin: 10px 10px 10px 0;
-    }
-
-    .gambar  .ul  .dalamgambar .ph  {
-        font-size: 8px;
-        padding:3px 7px;
+    .gambar .ul .dalamgambar .ph {
+        font-size: 12px;
     }
 
 }

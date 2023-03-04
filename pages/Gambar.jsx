@@ -1,31 +1,29 @@
 /* eslint-disable react/prop-types */
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from '@/styles/Gambar.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
-export default function Gambar(props) {
+export default function Gambar (props) {
   // eslint-disable-next-line react/prop-types
-  const { reqGambar1, reqGambar2, reqGambar3, reqGambar4 } = props
+  const { reqGambar1 } = props
 
   // eslint-disable-next-line react/prop-types
   const [gambar1, setGambar1] = useState(reqGambar1.photos)
-  // eslint-disable-next-line react/prop-types
-  const [gambar2, setGambar2] = useState(reqGambar2.photos)
-  // eslint-disable-next-line react/prop-types
-  const [gambar3, setGambar3] = useState(reqGambar3.photos)
-  // eslint-disable-next-line react/prop-types
-  const [gambar4, setGambar4] = useState(reqGambar4.photos)
 
-  useEffect(() => {
-    setGambar1(reqGambar1.photos)
-    setGambar2(reqGambar2.photos)
-    setGambar3(reqGambar3.photos)
-    setGambar4(reqGambar4.photos)
-  })
+  const getMorePost = async () => {
+    const res = await fetch(`https://api.pexels.com/v1/curated?page=2&per_page=${gambar1.length}`, {
+      headers: {
+        Authorization: process.env.NEXT_PUBLIC_ANALYTICS_ID
+      }
+    })
+    const newPosts = await res.json()
+    const Mantap = await newPosts.photos
+    setGambar1(gambar1 => [...gambar1, ...Mantap])
+  }
 
-  console.log(gambar1)
   return (
     <>
 
@@ -34,69 +32,29 @@ export default function Gambar(props) {
         <div className={styles.wapper}>
           <div className={styles.ul}>
 
-            <div className={styles.satu}>
-              <div className={styles.wapperdalam}>
-                {gambar1.map((data, i) => {
-                  return <>
-                    <div className={styles.li1} key={i}>
-                      <div className={styles.dalamgambar}>
-                        <Image src={data.src.large} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
-                        <Link href={data.photographer_url}>
-                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                })}
-              </div>
-
-              <div className={styles.wapperdalam}>
-                {gambar2.map((data, i) => {
-                  return <>
-                    <div className={styles.li2} key={i}>
-                      <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
-                        <Link href={data.photographer_url}>
-                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                })}
-              </div>
-            </div>
-
-            <div className={styles.dua}>
-              <div className={styles.wapperdalam}>
-                {gambar3.map((data, i) => {
-                  return <>
-                    <div className={styles.li3} key={i}>
-                      <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
-                        <Link href={data.photographer_url}>
-                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                })}
-              </div>
-              <div className={styles.wapperdalam}>
-                {gambar4.map((data, i) => {
-                  return <>
-                    <div className={styles.li4} key={i}>
-                      <div className={styles.dalamgambar}>
-                        <Image src={data.src.large2x} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
-                        <Link href={data.photographer_url}>
-                          <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                })}
-              </div>
-            </div>
-
+            {gambar1?.map((data, i) => {
+              return <>
+                <div className={styles.li1} key={i}>
+                  <div className={styles.dalamgambar}>
+                    <Image src={data.src.large} alt={data.alt} width={500} height={500} style={{ borderRadius: '10px' }}></Image>
+                    <Link href={data.photographer_url}>
+                      <div className={styles.ph} style={{ backgroundColor: (`${data.avg_color}`) }}>@{data.photographer}</div>
+                    </Link>
+                  </div>
+                </div>
+              </>
+            })
+            }
+            <InfiniteScroll
+              dataLength={gambar1.length}
+              next={getMorePost}
+              hasMore={true}
+              loader={<center>Loading...</center>}
+              endMessage={
+                <center>sudahhhh</center>
+              }
+            >
+            </InfiniteScroll>
           </div>
         </div>
       </div>
@@ -104,44 +62,17 @@ export default function Gambar(props) {
   )
 }
 
-export async function getServerSideProps() {
-  const [resGambar1, resGambar2, resGambar3, resGambar4] = await Promise.all([
+export async function getServerSideProps () {
+  const resGambar1 = await fetch('https://api.pexels.com/v1/curated?page=1&per_page=8', {
+    headers: {
+      Authorization: process.env.MY_SECRET_VARIABLE
+    }
+  })
+  const reqGambar1 = await resGambar1.json()
 
-    fetch('https://api.pexels.com/v1/curated?page=1&per_page=70', {
-      headers: {
-        Authorization: process.env.MY_SECRET_VARIABLE
-      }
-    }),
-    fetch('https://api.pexels.com/v1/curated?page=2&per_page=70', {
-      headers: {
-        Authorization: process.env.MY_SECRET_VARIABLE
-      }
-    }),
-    fetch('https://api.pexels.com/v1/curated?page=3&per_page=70', {
-      headers: {
-        Authorization: process.env.MY_SECRET_VARIABLE
-      }
-    }),
-    fetch('https://api.pexels.com/v1/curated?page=4&per_page=70', {
-      headers: {
-        Authorization: process.env.MY_SECRET_VARIABLE
-      }
-    })
-  ])
-
-  // eslint-disable-next-line no-undef
-  const [reqGambar1, reqGambar2, reqGambar3, reqGambar4] = await Promise.all([
-    resGambar1.json(),
-    resGambar2.json(),
-    resGambar3.json(),
-    resGambar4.json()
-  ])
   return {
     props: {
-      reqGambar1,
-      reqGambar2,
-      reqGambar3,
-      reqGambar4
+      reqGambar1
     }
   }
 }
