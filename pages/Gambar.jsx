@@ -63,7 +63,7 @@ export default function Gambar (props) {
 }
 
 export async function getServerSideProps () {
-  const resGambar1 = await fetch('https://api.pexels.com/v1/curated?page=1&per_page=8', {
+  const resGambar1 = await fetch('https://api.pexels.com/v1/curated?page=1&per_page=10', {
     headers: {
       Authorization: process.env.MY_SECRET_VARIABLE
     }
