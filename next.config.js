@@ -5,8 +5,7 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ['i.postimg.cc','images.pexels.com','tinypic.host', '2.bp.blogspot.com'],
-  },
+    domains: ['i.postimg.cc','images.pexels.com','tinypic.host', '2.bp.blogspot.com', 'localhost']},
   env: {
     API_ENDPOINT: process.env.API_ENDPOINT
   }

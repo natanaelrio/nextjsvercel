@@ -1,0 +1,136 @@
+.banner {
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+}
+
+.gambarbanner {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 500px;
+}
+
+.gambarbanner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.blur {
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    opacity: 0.5;
+}
+
+
+
+.des {
+    z-index: 30;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.des .kata1 {
+    color: #3a4258;
+    font-size: 50px;
+    padding: 0 5px;
+    font-weight: 900;
+    text-align: center;
+    background-color: #FFA400;
+    font-family: var(--font);
+}
+
+.des .kata2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.des .pencarian {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.des .pencarian form {
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.des .pencarian input {
+    width: 90%;
+    height: 50px;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: var(--font);
+    border-radius: 10px 0 0 10px;
+    color: #3a4258;
+}
+
+.des .pencarian input::placeholder {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font);
+    color: #3a4258;
+}
+
+.des .pencarian input:focus {
+    outline: none;
+}
+
+.des .pencarian button {
+    outline: none;
+    border: none;
+    width: 10%;
+    height: 70px;
+    cursor: pointer;
+    background-color: #FFA400;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font);
+    border-radius: 0 10px 10px 0;
+    color: #3a4258;
+}
+
+
+.author {
+    position: absolute;
+    z-index: 40;
+    bottom: 30px;
+    right: 40px;
+    width: auto;
+    height: auto;
+    color: #fff;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.author:hover {
+    opacity: 1;
+}
+
+.author .sauthor {
+    color: #fff;
+}

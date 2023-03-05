@@ -54,7 +54,8 @@ export default function Home(props: BlogProps) {
       setTampung(newCari)
     }
   }
-
+ 
+console.log(posts.length);
 
 
   return (
