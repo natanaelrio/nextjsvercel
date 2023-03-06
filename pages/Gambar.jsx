@@ -90,7 +90,7 @@ export default function Gambar (props) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps () {
   const [resGambar1, resBanner] = await Promise.all([
     fetch('https://api.pexels.com/v1/curated?page=1&per_page=10', {
       headers: {
