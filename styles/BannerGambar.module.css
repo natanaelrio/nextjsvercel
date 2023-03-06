@@ -26,11 +26,8 @@
     top: 0;
     width: 100%;
     height: 500px;
-    background-color: black;
     opacity: 0.5;
 }
-
-
 
 .des {
     z-index: 30;
@@ -133,4 +130,50 @@
 
 .author .sauthor {
     color: #fff;
+}
+
+
+
+.atas {
+    position: absolute;
+    z-index: 40;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .des .bungkuskata {
+        width: 90%;
+    }
+
+
+    .des .kata1 {
+        font-size: 25px;
+        background-color:transparent;
+        color: #fff;
+    }
+
+    .des .kata2 {
+        font-size: 14px;
+    }
+
+    .des .pencarian form {
+        width: 90%;
+    }
+
+    .des .pencarian input {
+        width: 80%;
+    }
+
+    .des .pencarian button {
+        width: 20%;
+    }
+
+
 }

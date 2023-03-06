@@ -1,0 +1,101 @@
+.tampung {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #3a4258;
+}
+
+.tampung .dalam {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tampung .dalam .judul {
+    width: 300px;
+}
+
+.tampung .dalam .judul a {
+    font-weight: 700;
+    font-size: 30px;
+    color: #3a4258;
+}
+
+.tampung .dalam .judul a:hover {
+    transition: all 0.1s ease;
+    border: 1px solid #3a4258;
+}
+
+
+.tampung .dalam .pencarian {
+    display: flex;
+    justify-content: flex-end;
+    width: 900px;
+}
+
+.tampung .dalam .pencarian form {
+    display: flex;
+    align-items: center;
+}
+
+.tampung .dalam .pencarian input {
+    width: 80%;
+    height: 50px;
+    outline: none;
+    border: 1px solid #3a4258;
+    border-right: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: var(--font);
+    border-radius: 10px 0 0 10px;
+    color: #3a4258;
+}
+
+.tampung .dalam .pencarian input::placeholder {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font);
+    color: #3a4258;
+}
+
+.tampung .dalam .pencarian input:focus {
+    outline: none;
+}
+
+.tampung .dalam .pencarian button {
+    outline: none;
+    border: 1px solid #3a4258;
+    border-left: none;
+    width: 20%;
+    height: 72px;
+    cursor: pointer;
+    background-color: #FFA400;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font);
+    border-radius: 0 10px 10px 0;
+    color: #3a4258;
+}
+
+.tampung .dalam .pencarian button:hover {
+    color: #fff;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .tampung .dalam {
+        width: 95%;
+        flex-direction: column;
+    }
+    .tampung .dalam .judul {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tampung .dalam .pencarian {
+        width: 100%;
+    }
+    
+}

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import styles from '@/styles/Gambar.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import HeaderGambar from '../../../components/HeaderGambar/HeaderGambar'
 export default function carix (props) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const data = useRouter()
@@ -18,6 +19,7 @@ export default function carix (props) {
   return (
         <>
             <body>
+              <HeaderGambar />
                 <div className={styles.gambar}>
                     <div className={styles.des}>Hasil Pencarian {search} </div>
                     <div className={styles.wapper}>
