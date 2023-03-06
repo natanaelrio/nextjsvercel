@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { saveAs } from 'file-saver'
 
-export default function Gambar(props) {
+export default function Gambar (props) {
   // eslint-disable-next-line react/prop-types
   const { reqGambar1, reqBanner } = props
 
