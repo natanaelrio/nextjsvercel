@@ -1,16 +1,19 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
 import stylesb from '@/styles/Banner.module.css'
+import styles from '@/styles/Home.module.css'
 import stylesA from '@/styles/Pencarian.module.css'
-import Footer from '../components/Footer/Footer'
-import Link from "next/link";
-import React, { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component';
+import Head from 'next/head'
 import Image from 'next/image'
+import Link from "next/link"
+import React, { useState } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
+
 import Bg from '../Asset/Gambar/1994.jpg'
-import Dua from '../Asset/Gambar/duaP.svg'
 import Dekor from '../Asset/Gambar/dekor.svg'
+import Dua from '../Asset/Gambar/duaP.svg'
 import Black from '../components/Black/Black'
+import CardArtikel from '../components/CardArtikel/CardArtikel'
+import Footer from '../components/Footer/Footer'
 
 interface Post {
   uid: number;
@@ -31,7 +34,7 @@ interface BlogProps {
 }
 
 
-export default function Home(props: BlogProps) {
+export default function index(props: BlogProps) {
   const { datablog } = props;
 
   const [posts, setPosts] = useState(datablog)
@@ -54,8 +57,10 @@ export default function Home(props: BlogProps) {
       setTampung(newCari)
     }
   }
- 
-console.log(posts.length);
+
+  const headnone = () => {
+    document.getElementById('black')!.style.display = 'none'
+  }
 
 
   return (
@@ -75,13 +80,10 @@ console.log(posts.length);
         <meta name="robots" content="index, follow" />
         <meta property="og:image" content="" />
         <link href="./duaW.svg" rel="shortcut icon" type="image/x-icon" />
-
       </Head>
       <body>
-
-        {cari.length !== 0 ? <Black /> : null}
         <div className={stylesb.wapper}>
-
+          {cari.length !== 1 ? <div onClick={() => headnone()} id='black'><Black /></div> : null}
           <div className={stylesb.wapper2}>
             <div className={stylesb.logo}>
               <Image className={stylesb.logogambar} src={Dua} width={50} height={50} alt="duateman.com">
@@ -93,7 +95,7 @@ console.log(posts.length);
               </div>
             </div>
             <div className={stylesb.bgt}></div>
-            <div className={stylesb.bg}><Image src={Bg} alt="background" /></div>
+            <div className={stylesb.bg}><Image src={Bg} alt="background" width={1000} height={500} /></div>
             <div className={stylesb.dalamisi}>
 
               <div className={stylesb.judul}>Bosan? Sini dong :)</div>
@@ -102,31 +104,29 @@ console.log(posts.length);
               <div className={stylesb.pencarian}>
 
 
-              <form className={stylesA.Pen} method='get' action={`/search/${cari}`}>
-                <div className={stylesA.pencarian} >
-                    <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }}/>
+                <form className={stylesA.Pen} method='get' action={`/search/${cari}`}>
+                  <div className={stylesA.pencarian} >
+                    <input placeholder='Cari..' type="search" value={cari} onChange={(e) => { headSubmit(e.target.value) }} />
                     <button type="submit" >Cari</button>
-                </div>
-                <ul>
+                  </div>
+                  <ul>
                     {cari.length !== 0
-                      ? tampung.map((dataku: any, i) => {
+                      ? tampung.map((dataku: any) => {
                         return (
-                            <>
-                                <li>
-                                    <Link key={i} href={dataku.slug} className={stylesA.link} >
-                                        <div className={stylesA.kiri}>{dataku.judul}</div>
-                                        <div className={stylesA.kanan}><Image className={stylesA.gambar} src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
-                                    </Link>
-                                </li>
-                            </>
+                          <>
+                            <li key={dataku.uid}>
+                              <Link href={dataku.slug} className={stylesA.link} >
+                                <div className={stylesA.kiri}>{dataku.judul}</div>
+                                <div className={stylesA.kanan}><Image className={stylesA.gambar} src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
+                              </Link>
+                            </li>
+                          </>
                         )
                       })
                       : null
                     }
-                </ul>
-            </form>
-
-
+                  </ul>
+                </form>
               </div>
             </div>
           </div>
@@ -140,6 +140,7 @@ console.log(posts.length);
             <div className={styles.judullistartikel}>Daftar Artikel</div>
           </div>
           <div className={styles.luarcard}>
+
             <InfiniteScroll
               dataLength={posts.length}
               next={getMorePost}
@@ -150,26 +151,21 @@ console.log(posts.length);
               }
             >
               <div className={styles.luarcardwarp}>
-
-                {posts.map((dataku, i) => {
-
+                {posts.map((dataku) => {
                   return (
                     <>
-                      <Link key={i} href={dataku.slug}>
-                        <div className={styles.bungkuscard}>
-                          <div className={styles.gambarartikel}>
-                            <div className={styles.view}>
-                              {dataku.viewartikel}
-                            </div>
-                            <img src={dataku.urlgambar} alt={dataku.judul}></img>
-                            <div className="linierartikel"></div>
-                          </div>
-                          <div className={styles.bungkusdesartikel}>
-                            <div className={styles.tanggal}>{dataku.tanggalsamping}</div>
-                            <div className={styles.judul} >{dataku.judul}</div>
-                          </div>
-                        </div>
-                      </Link>
+                      <div key={dataku.uid}>
+                        <LazyLoadComponent>
+                          <CardArtikel
+                            uid={dataku.uid}
+                            slug={dataku.slug}
+                            viewartikel={dataku.viewartikel}
+                            urlgambar={dataku.urlgambar}
+                            judul={dataku.judul}
+                            tanggal={dataku.tanggalsamping}
+                          />
+                        </LazyLoadComponent>
+                      </div>
                     </>
                   )
                 })}
@@ -184,13 +180,16 @@ console.log(posts.length);
 }
 
 
+
+
+
 export async function getServerSideProps() {
   const [datablogRes] = await Promise.all([
     fetch(`${process.env.API_ENDPOINT}?limit=8`)
-  ]);
+  ])
   const [datablog] = await Promise.all([
-    datablogRes.json(),
-  ]);
+    datablogRes.json()
+  ])
   return {
     props: {
       datablog
@@ -198,5 +197,3 @@ export async function getServerSideProps() {
   };
 
 }
-
-

@@ -92,7 +92,10 @@ img {
 }
 
 .black {
-  height: 200vh ;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  height: 200vh;
   width: 100vw;
   position: fixed;
   background-color: black;

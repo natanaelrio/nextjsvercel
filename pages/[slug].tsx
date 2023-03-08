@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image"
 
@@ -13,7 +13,6 @@ import Tw from "../Asset/Gambar/TWshare.svg";
 import Wa from "../Asset/Gambar/WAshare.svg";
 import Tl from "../Asset/Gambar/TLshare.svg";
 import Arrow from "../Asset/Gambar/arrow.svg";
-import Home from "../Asset/Gambar/home.svg";
 
 
 interface Post {
@@ -51,7 +50,7 @@ export default function DetailBlog(props: BlogProps) {
             {datablog.map((dataku) => {
                 return (
                     <>
-                        <div>
+                        <div key={dataku.uid}>
                             <Head>
                                 <title>{dataku.judul} - DuaTeman</title>
                                 <meta name="description" content={dataku.paragraf} />
@@ -176,7 +175,7 @@ export default function DetailBlog(props: BlogProps) {
                                                         {datablogdua.map((dataku) => {
                                                             return (
                                                                 <>
-                                                                    <Link href={'/' + dataku.slug}>
+                                                                    <Link href={'/' + dataku.slug} key={dataku.uid}>
                                                                         <div className={stylesU.bungkussamping} key={dataku.uid}>
                                                                             <div className={stylesU.sebelahkiri}>
                                                                                 <div className={stylesU.judul}>{dataku.judul}</div>

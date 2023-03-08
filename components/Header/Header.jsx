@@ -42,11 +42,11 @@ export default function Header () {
                 <button type="submit" >Cari</button>
               </div>
               <ul>
-                {cari.length !== 0 ? tampung.map((dataku, i) => {
+                {cari.length !== 0 ? tampung.map((dataku) => {
                   return (
                     <>
-                      <li>
-                        <Link key={i} href={dataku.slug} className={styles.link}>
+                      <li key={dataku.uid}>
+                        <Link href={dataku.slug} className={styles.link}>
                           <div className={styles.kiri}>{dataku.judul}</div>
                           <div className={styles.kanan}><Image className={styles.gambar} src={dataku.urlgambar} width={50} height={50} alt={dataku.judul}></Image></div>
                         </Link>
